@@ -1,0 +1,9 @@
+.page-header
+  %h1= @recipe.name
+  .flex.gap-x-4
+    = link_to 'Edit', [:edit, @recipe]
+    = link_to 'Delete', @recipe, data: { turbo_method: :delete }
+
+= @recipe.url
+= @recipe.summary
+

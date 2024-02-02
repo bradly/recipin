@@ -1,0 +1,14 @@
+.page-header
+  %h1 New Recipe
+
+= form_for @recipe do |form|
+  = form.label :name
+  = form.text_field :name
+
+  = form.label :url
+  = form.text_field :url
+
+  = form.label :summary
+  = form.text_area :summary
+
+  = form.submit

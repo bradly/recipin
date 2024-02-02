@@ -28,8 +28,8 @@ end
 group :development, :test do
 end
 
-group :development do
-  gem "haml"
-  gem "simple_form"
-  gem "clearance"
-end
+gem "haml-rails"
+gem "simple_form"
+gem "simple_form-tailwind"
+gem "clearance"
+gem "font-awesome-sass"
