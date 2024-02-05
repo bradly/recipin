@@ -1,0 +1,18 @@
+- recipe = Recipe.all.sample
+- type = %i(made saved).sample
+
+%li
+  .relative.pb-8
+    %span.absolute.left-4.top-4.-ml-px.h-full.bg-gray-200{ class: 'w-0.5' }
+    .relative.flex.space-x-3
+      %span.flex.items-center.justify-center.text-2xl.text-gray-500.bg-white
+        = icon_for :circle_plus, variant: :solid
+      .flex.min-w-0.flex-1.justify-between.space-x-4{ class: 'pt-1.5' }
+        %div
+          %p.text-sm
+            = link_to 'Sarah', '#', class: 'font-medium'
+            %span.muted= type
+            = link_to recipe.name, recipe, class: 'font-medium'
+            %time.muted{ datetime: '2020-09-20' }= time_ago_in_words recipe.created_at
+- recipe = Recipe.all.sample
+- type = %i(made saved).sample
