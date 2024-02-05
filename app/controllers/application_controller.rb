@@ -6,15 +6,22 @@ class ApplicationController < ActionController::Base
 
   def index; end
   def   new; end
+  def  edit; end
   def  show; end
 
   def create
-    @resource.user = current_user || User.first
-
     if @resource.save!
       redirect_to @resource, notice: save_success_message
     else
       render :new, alert: save_failed_message
+    end
+  end
+
+  def update
+    if @resource.update!(resource_params)
+      redirect_to @resource, notice: save_success_message
+    else
+      render :edit, alert: save_failed_message
     end
   end
 

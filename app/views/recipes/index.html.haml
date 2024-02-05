@@ -1,8 +1,9 @@
-.page-header
+= content_for :page_header do
   %h1 Recipes
   = link_to icon_for(:plus, text: 'Add recipe'), [:new, :recipe]
 
 - if @recipes.present?
-  = render @recipes
+  %ul.grid.grid-cols-3.gap-6
+    = render @recipes
 - else
   No recipes

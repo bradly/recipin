@@ -12,13 +12,12 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_02_02_165338) do
   create_table "recipes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "name", null: false
+    t.string "name"
     t.string "url"
-    t.text "summary"
+    t.string "image_url"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,5 +32,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_02_165338) do
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
   end
 
-  add_foreign_key "recipes", "users"
 end

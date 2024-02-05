@@ -9,7 +9,13 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
+
   %body
-    %main.mx-auto.max-w-6xl
+    %main.container.mx-auto.max-w-6xl
       = render 'layouts/nav'
-      = yield
+
+      .page-header= yield :page_header
+
+      .grid.grid-cols-4
+        .col-span-3= yield
+        .col-span-1= render 'layouts/feed'

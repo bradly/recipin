@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: Inter var, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -moz-osx-font-smoothing: grayscale;
+  @apply mx-4;
+}
+
+.muted {
+  @apply text-gray-500;
+}
+
 .active {
-  @apply bg-gray-100;
+  @apply border-b-2 border-gray-100;
 }
 
 .nav-link {
-  @apply hover:bg-gray-100 hover:text-black rounded-md px-3 py-2;
+  @apply hover:bg-gray-100 hover:text-black py-2 mt-1;
 }
 
 .page-header {

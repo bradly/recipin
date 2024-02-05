@@ -1,11 +1,11 @@
 %nav.mb-4
   .flex.h-16.items-center.justify-between
-    .flex.items-center.justify-center.gap-4
+    .flex.items-center.justify-center.gap-8
       .flex.items-center.gap-2
-        %img.h-8.w-auto{ alt: 'Recipin', src: 'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500' }
-        Recipin
+        %span.text-gray-500= icon_for :lemon
+        %span.font-medium Recipin
 
       .flex.space-x-4.text-sm
-        %a.nav-link.active Recipes
+        = link_to 'Recipes', [:recipes], class: 'nav-link active'
 
     = link_to icon_for(:circle_user, size: 'xl'), current_user
