@@ -22,7 +22,7 @@ body {
 }
 
 .page-header {
-  @apply mb-4 flex justify-between;
+  @apply mb-8 flex justify-between;
 }
 
 .page-header h1 {
