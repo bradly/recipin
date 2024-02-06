@@ -1,10 +1,6 @@
-%li.border.border-1.border-gray-200.col-span-1.flex.flex-col.divide-y.divide-gray-200.rounded-lg.text-center
-  .flex.flex-col.py-8.relative
-    = link_to recipe do
-      = component_link
-      = image_tag recipe.image_url, class: 'mb-8 mx-auto h-32 w-32 rounded-full'
-    %h3.text-sm.font-medium= recipe.name
-    %p.text-sm.muted Last made <time datetime='#{recipe.created_at}'>#{time_ago_in_words recipe.created_at}</time>
-  .flex.divide-x.divide-gray-200.text-sm.bg-white
-    = link_to 'Make',      recipe, class: 'grow py-4 font-semibold'
-    = link_to 'Not today', recipe, class: 'grow py-4 font-semibold'
+%li.border.border-1.border-gray-200.rounded-lg.text-center.py-8.px-1.relative
+  = link_to recipe do
+    = component_link
+    = image_tag recipe.image_url, class: 'mb-8 mx-auto h-32 w-32 rounded-full'
+  %h3.text-sm.font-medium= recipe.name
+  %p.text-sm.muted Last made <time datetime='#{recipe.created_at}'>#{time_ago_in_words recipe.created_at}</time>

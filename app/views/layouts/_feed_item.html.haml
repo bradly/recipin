@@ -14,5 +14,3 @@
             %span.muted= type
             = link_to recipe.name, recipe, class: 'font-medium'
             %time.muted{ datetime: '2020-09-20' }= time_ago_in_words recipe.created_at
-- recipe = Recipe.all.sample
-- type = %i(made saved).sample

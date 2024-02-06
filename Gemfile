@@ -34,3 +34,5 @@ gem "simple_form-tailwind"
 gem "clearance"
 gem "font-awesome-sass"
 gem "nokogiri"
+
+gem "hashie", "~> 5.0"

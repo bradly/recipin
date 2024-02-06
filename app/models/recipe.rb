@@ -4,9 +4,9 @@ class Recipe < ApplicationRecord
   private
 
   def update_metadata
-    self.name        = schema.name
-    self.description = schema.description
-    self.image_url   = schema.image_url
+    self.name        ||= schema.name
+    self.description ||= schema.description
+    self.image_url   ||= schema.image_url
   end
 
   def schema

@@ -1,4 +1,4 @@
-class SchemaExtractor < ApplicationService
+class SchemaExtractor
   require 'open-uri'
 
   USER_AGENT = "Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36"
@@ -10,15 +10,27 @@ class SchemaExtractor < ApplicationService
   end
 
   def name
-    schema.dig('headline').presence || schema.dig('@graph', 0, 'headline')
+    data.dig('headline').presence
   end
 
   def description
-    schema.dig('description').presence || schema.dig('@graph', 0, 'description')
+    data.dig('description').presence
   end
 
   def image_url
-    schema.dig('thumbnailUrl').presence || schema.dig('@graph', 0, 'thumbnailUrl')
+    data.dig('thumbnailUrl').presence || data.dig('image', 'url')
+  end
+
+  def data(needle = '@type')
+    @data = Hashie::Mash.new(schema)
+      .extend(Hashie::Extensions::DeepLocate)
+      .deep_locate -> (key, _, _) { key == needle }
+
+    @data.first
+  end
+
+  def schema
+    @schema ||= Array.wrap(JSON.parse(raw_schema)).first
   end
 
   private
@@ -29,9 +41,5 @@ class SchemaExtractor < ApplicationService
 
   def raw_schema
     doc.search("script[type='application/ld+json']").collect(&:inner_text).sort_by(&:length).last
-  end
-
-  def schema
-    @schema ||= JSON.parse(raw_schema)
   end
 end
