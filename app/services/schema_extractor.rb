@@ -22,11 +22,12 @@ class SchemaExtractor
   end
 
   def data(needle = '@type')
-    @data = Hashie::Mash.new(schema)
-      .extend(Hashie::Extensions::DeepLocate)
-      .deep_locate -> (key, _, _) { key == needle }
-
-    @data.first
+    @data ||= begin
+      Hashie::Mash.new(schema)
+        .extend(Hashie::Extensions::DeepLocate)
+        .deep_locate -> (key, _, _) { key == needle }
+        .first
+    end
   end
 
   def schema
