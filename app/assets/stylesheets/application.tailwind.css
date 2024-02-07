@@ -18,7 +18,7 @@ body {
 }
 
 .nav-link {
-  @apply hover:bg-gray-100 hover:text-black py-2 mt-1;
+  @apply pb-2 pt-3 hover:border-gray-300;
 }
 
 .page-header {
@@ -47,4 +47,8 @@ input[type="text"], textarea {
 
 input[type="submit"] {
   @apply rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+
+ul li:last-child .vert-line {
+  display: none;
 }
