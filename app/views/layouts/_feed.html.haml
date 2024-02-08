@@ -1,2 +1,3 @@
 .flow-root
-  %ul.-mb-8= render 'layouts/feed_item'
+  %ul.-mb-8
+    = render partial: 'layouts/feed_item', collection: Recipe.all, as: :recipe
