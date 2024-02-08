@@ -23,11 +23,11 @@ class SchemaExtractor
       data.dig('image', 'url')
   end
 
-  def data(needle = '@type')
+  def data
     @data ||= begin
                 Hashie::Mash.new(schema)
                   .extend(Hashie::Extensions::DeepLocate)
-                  .deep_locate(-> (key, _, _) { key == needle })
+                  .deep_locate(-> (key, _, _) { key == '@type' })
                   .first
               end
   end
