@@ -1,4 +1,19 @@
 module ApplicationHelper
+  EXTERNAL_ROUTES = {
+    about:         'https://github.com/bradly/recipin',
+    blog:          'https://github.com/bradly/recipin',
+    jobs:          'https://github.com/bradly/recipin',
+    press:         'https://github.com/bradly/recipin',
+    accessibility: 'https://github.com/bradly/recipin',
+    partners:      'https://github.com/bradly/recipin',
+  }
+
+  EXTERNAL_ROUTES.each do |name, path|
+    define_method "#{name}_path" do
+      path
+    end
+  end
+
   def component_link
     tag.span class: 'absolute inset-x-0 -top-px bottom-0'
   end
@@ -11,9 +26,4 @@ module ApplicationHelper
     end
   end
 
-  EXTERNAL_PATHS.each do |name, path|
-    define_method "#{name}_path" do
-      path
-    end
-  end
 end
