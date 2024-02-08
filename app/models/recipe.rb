@@ -4,12 +4,13 @@ class Recipe < ApplicationRecord
   private
 
   def update_metadata
-    self.name        ||= schema.name
-    self.description ||= schema.description
-    self.image_url   ||= schema.image_url
+    self.name        ||= schema_extractor.name
+    self.description ||= schema_extractor.description
+    self.image_url   ||= schema_extractor.image_url
+    self.schema      ||= schema_extractor.raw_schema
   end
 
-  def schema
-    @schema ||= SchemaExtractor.new(url)
+  def schema_extractor
+    @schema_extractor||= SchemaExtractor.new(url)
   end
 end

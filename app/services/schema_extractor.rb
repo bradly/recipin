@@ -36,13 +36,13 @@ class SchemaExtractor
     @schema ||= Array.wrap(JSON.parse(raw_schema)).first
   end
 
+  def raw_schema
+    @raw_schema = doc.search("script[type='application/ld+json']").collect(&:inner_text).sort_by(&:length).last
+  end
+
   private
 
   def doc
     @doc ||= Nokogiri::HTML(URI.open(@url, "User-Agent" => USER_AGENT))
-  end
-
-  def raw_schema
-    doc.search("script[type='application/ld+json']").collect(&:inner_text).sort_by(&:length).last
   end
 end
