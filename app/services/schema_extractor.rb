@@ -18,16 +18,18 @@ class SchemaExtractor
   end
 
   def image_url
-    data.dig('thumbnailUrl').presence || data.dig('image', 'url')
+    data.dig('thumbnailUrl').presence ||
+      (data.dig('image')&.is_a?(String) && data.dig('image')).presence ||
+      data.dig('image', 'url')
   end
 
   def data(needle = '@type')
     @data ||= begin
-      Hashie::Mash.new(schema)
-        .extend(Hashie::Extensions::DeepLocate)
-        .deep_locate -> (key, _, _) { key == needle }
-        .first
-    end
+                Hashie::Mash.new(schema)
+                  .extend(Hashie::Extensions::DeepLocate)
+                  .deep_locate(-> (key, _, _) { key == needle })
+                  .first
+              end
   end
 
   def schema
