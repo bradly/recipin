@@ -10,4 +10,10 @@ module ApplicationHelper
       icon "fa-#{variant}", name.to_s.dasherize, text, class: "fa-#{size} #{icon_class}"
     end
   end
+
+  EXTERNAL_PATHS.each do |name, path|
+    define_method "#{name}_path" do
+      path
+    end
+  end
 end

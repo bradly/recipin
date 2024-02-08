@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  resources :recipes
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
   root "recipes#index"
+  resources :recipes
+
+  EXTERNAL_PATHS = {
+    about:         'https://github.com/bradly/recipin',
+    blog:          'https://github.com/bradly/recipin',
+    jobs:          'https://github.com/bradly/recipin',
+    press:         'https://github.com/bradly/recipin',
+    accessibility: 'https://github.com/bradly/recipin',
+    partners:      'https://github.com/bradly/recipin',
+  }
 end
