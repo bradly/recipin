@@ -1,11 +1,8 @@
 module ApplicationHelper
   EXTERNAL_ROUTES = {
-    about:         'https://github.com/bradly/recipin',
-    blog:          'https://github.com/bradly/recipin',
-    jobs:          'https://github.com/bradly/recipin',
-    press:         'https://github.com/bradly/recipin',
-    accessibility: 'https://github.com/bradly/recipin',
-    partners:      'https://github.com/bradly/recipin',
+    source_code:    'https://github.com/bradly/recipin',
+    support:        'https://github.com/bradly/recipin/issues',
+    changelog:      'https://github.com/bradly/recipin/commits/main',
   }
 
   EXTERNAL_ROUTES.each do |name, path|
@@ -25,5 +22,4 @@ module ApplicationHelper
       icon "fa-#{variant}", name.to_s.dasherize, text, class: "fa-#{size} #{icon_class}"
     end
   end
-
 end

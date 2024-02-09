@@ -17,7 +17,10 @@
       .page-header= yield :page_header
 
       .grid.grid-cols-4.gap-8
-        .col-span-3= yield
-        .col-span-1= render 'layouts/feed'
+        - if feed_enabled?
+          .col-span-3= yield
+          .col-span-1= render 'layouts/feed'
+        - else
+          .col-span-4= yield
 
       = render 'layouts/footer'

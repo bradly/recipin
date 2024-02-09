@@ -32,8 +32,8 @@ class ResourceController < ApplicationController
 
   private
 
-  def self.requires_login
-    before_action :require_login
+  def self.login_required(...)
+    before_action(:require_login, ...)
   end
 
   def self.permitted_params(...)

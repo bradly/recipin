@@ -1,4 +1,5 @@
 class RecipesController < ResourceController
-  requires_login
+  feed_enabled
+  login_required
   permitted_params = [:name, :url, :description]
 end

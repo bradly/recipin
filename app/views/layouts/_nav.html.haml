@@ -2,9 +2,7 @@
   .flex.h-16.items-center.justify-between
     .flex.items-center.justify-center.gap-8
       .flex.items-center.gap-2
-        %span.text-gray-500= icon_for :lemon
-        = link_to 'Recipin', root_path, class: 'font-medium'
-
+        = render 'layouts/brand'
       .flex.space-x-4.text-sm
         = link_to 'Recipes', [:recipes], class: 'nav-link active'
 
