@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
 
+  class_attribute :permitted_params
+
   before_action :set_collection,   only: :index
   before_action :set_resource,     except: :index
 
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::Base
   def  show; end
 
   def create
-    if @resource.save!
+    if @resource.save
       redirect_to @resource, notice: save_success_message
     else
       render :new, alert: save_failed_message
@@ -18,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def update
-    if @resource.update!(resource_params)
+    if @resource.update(resource_params)
       redirect_to @resource, notice: save_success_message
     else
       render :edit, alert: save_failed_message
@@ -31,6 +33,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+   def permitted_params
+     self.class.permitted_params || []
+  end
 
   def resource_scope
     resource_name.camelize.constantize
@@ -67,10 +73,6 @@ class ApplicationController < ActionController::Base
 
   def resource_params
     params.require(resource_name).permit(*permitted_params)
-  end
-
-  def permitted_params
-    self.class.instance_variable_get(:"@permitted_params")
   end
 
   def save_success_message
