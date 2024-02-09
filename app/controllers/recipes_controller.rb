@@ -1,3 +1,4 @@
-class RecipesController < ApplicationController
-  permitted_params :name, :url, :description
+class RecipesController < ResourceController
+  requires_login
+  permitted_params = [:name, :url, :description]
 end
