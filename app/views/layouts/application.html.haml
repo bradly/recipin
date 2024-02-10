@@ -1,26 +1,14 @@
 !!!
 %html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Recipin
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_importmap_tags
-
+  = render 'layouts/head'
   %body
     %main.container.mx-auto.max-w-6xl
-      = render 'layouts/nav'
-
+      = render 'layouts/header'
       .page-header= yield :page_header
-
       .grid.grid-cols-4.gap-8
         - if feed_enabled?
           .col-span-3= yield
           .col-span-1= render 'layouts/feed'
         - else
           .col-span-4= yield
-
       = render 'layouts/footer'

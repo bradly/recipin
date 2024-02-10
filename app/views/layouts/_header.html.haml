@@ -1,0 +1,6 @@
+%nav.mb-4
+  .flex.h-16.items-center.justify-between
+    .flex.items-center.justify-center.gap-8
+      .flex.items-center.gap-2= render 'layouts/brand'
+      .flex.space-x-4.text-sm= link_to 'Recipes', [:recipes], class: 'nav-link active'
+    = link_to icon_for(:circle_user, size: :xl), current_user, class: 'pt-2'
