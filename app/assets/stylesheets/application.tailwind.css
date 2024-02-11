@@ -33,6 +33,10 @@ body {
   @apply rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50;
 }
 
+.actions {
+  @apply flex gap-x-4;
+}
+
 h2 {
   @apply uppercase;
 }
@@ -55,4 +59,20 @@ input[type="submit"] {
 
 ul li:last-child .vert-line {
   display: none;
+}
+
+#users-layout form {
+  @apply space-y-3;
+}
+
+#users-layout label {
+  @apply block text-sm font-medium;
+}
+
+#users-layout input[type="text"], #users-layout input[type="password"] {
+  @apply block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+#users-layout input[type="submit"] {
+  @apply mt-8 flex w-full justify-center rounded-md bg-indigo-600 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }

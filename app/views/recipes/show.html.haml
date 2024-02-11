@@ -1,6 +1,6 @@
 .page-header
   %h1= @recipe.name
-  .flex.gap-x-4
+  .actions
     = link_to 'Edit', [:edit, @recipe]
     = link_to 'Delete', @recipe, data: { turbo_method: :delete }
 
