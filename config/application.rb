@@ -10,6 +10,7 @@ module Recipin
     config.autoload_lib(ignore: %w(assets tasks))
     config.to_prepare do
       Clearance::SessionsController.layout 'sessions'
+      Clearance::UsersController.layout 'sessions'
     end
   end
 end
