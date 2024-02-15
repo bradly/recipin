@@ -41,7 +41,7 @@ class ResourceController < ApplicationController
   end
 
   def permitted_params
-     self.class.permitted_params || []
+    raise NotImplementedError
   end
 
   def resource_scope
