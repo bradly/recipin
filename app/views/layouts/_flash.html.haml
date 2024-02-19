@@ -1,2 +1,6 @@
-- flash.each do |type, msg|
-  .alert.alert-info= msg
+- flash.each do |type, message|
+  .flash.border-l-4.p-4.text-sm.text-medium{ class: "#{type}" }
+    - if type == 'alert'
+      = icon_for :triangle_exclamation, variant: :solid, text: message
+    - else
+      = icon_for :circle_info, variant: :solid, text: message

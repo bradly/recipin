@@ -4,8 +4,8 @@
   %body
     %main.container.mx-auto.max-w-6xl
       = render 'layouts/header'
+      .mx-auto.text-center.mb-8= render 'layouts/flash'
       .page-header= yield :page_header
-      = render 'layouts/flash'
       .grid.grid-cols-4.gap-8
         - if feed_enabled?
           .col-span-3= yield

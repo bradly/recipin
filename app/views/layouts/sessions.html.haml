@@ -2,13 +2,11 @@
 %html.h-full.bg-white
   = render 'layouts/head'
   %body#users-layout.h-full
-    .flex.min-h-full.flex-col.justify-center.px-6.py-12.lg:px-8
-      .sm:mx-auto.sm:w-full.sm:max-w-sm
-        %h2.normal-case.text-center.text-xl.font-bold.tracking-tight.text-gray-700
-          %span.text-base.mr-1= icon_for :lemon
-          = yield :title
+    .flex.min-h-full.flex-col.justify-center.px-6.py-12.px-8
+      .mx-auto.w-full.max-w-sm.mb-10
+        %h2.normal-case.text-center.text-xl.font-semibold.tracking-tight.text-gray-700
+          %span.text-base.mr-1.text-yellow-300= icon_for :lemon
+          = flash[:alert].presence || yield(:title)
 
-        = render 'layouts/flash'
-
-      .mt-10.sm:mx-auto.sm:w-full.sm:max-w-sm
+      .mx-auto.w-full.max-w-sm
         = yield
