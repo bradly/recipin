@@ -13,7 +13,7 @@ body {
   @apply text-gray-500;
 }
 
-.nav-link:hover, .active {
+.nav-link:hover, .nav-link.active {
   @apply border-gray-100;
 }
 
