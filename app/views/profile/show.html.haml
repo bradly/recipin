@@ -1,0 +1,8 @@
+.page-header
+  %h1= @user.email
+
+  .actions
+    = link_to 'Edit', [:edit, @user]
+    = link_to 'Sign out', sign_out_path, data: { turbo_method: :delete }
+
+= @user.email
