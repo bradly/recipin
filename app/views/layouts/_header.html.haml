@@ -2,5 +2,5 @@
   .flex.items-baseline.justify-between.line-8
     .flex.items-baseline.justify-center.gap-8
       .flex.items-center.gap-2= render 'layouts/brand'
-      .flex.space-x-4.text-sm= link_to 'Recipes', [:recipes], class: 'nav-link active'
+      .flex.space-x-4.text-sm= link_to 'Recipes', [:recipes], class: "nav-link #{'active' if controller_name == 'recipies'}"
     = link_to icon_for(:circle_user), user_profile_path, class: 'muted'

@@ -13,12 +13,12 @@ body {
   @apply text-gray-500;
 }
 
-.active {
-  @apply border-b-2 border-gray-100;
+.nav-link:hover, .active {
+  @apply border-gray-100;
 }
 
 .nav-link {
-  @apply pb-2 pt-3 hover:border-gray-300;
+  @apply pb-2 pt-3 hover:border-gray-300 border-b-2 border-transparent;
 }
 
 .page-header {
