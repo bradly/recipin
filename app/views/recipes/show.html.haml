@@ -4,5 +4,8 @@
     = link_to 'Edit', [:edit, @recipe]
     = link_to 'Delete', @recipe, data: { turbo_method: :delete }
 
-= @recipe.url
-= @recipe.description
+.flex.gap-8
+  = image_tag @recipe.image_url, class: 'flex-shrink-0 w-32 h-32 rounded-full'
+  %div
+    %p= @recipe.description
+    %p= link_to url_host(@recipe.url), @recipe.url, target: '_blank', class: 'text-sm text-blue-500 border-b-2 border-blue-100'

@@ -1,8 +1,8 @@
 %footer.mx-auto.mt-32.w-full.max-w-container
   .border-t.border-gray-200.py-10.text-center
-    .mb-2= render 'layouts/brand'
+    .flex.gap-2.justify-center= render 'layouts/brand'
     .mb-8.text-center.text-sm.leading-6.muted &copy; 2024 Recipin. All rights reserved.
-    .text-sm.flex.items-center.justify-center.space-x-4.leading-6
+    .text-sm.flex.items-center.justify-center.space-x-4.leading-6.muted
       = link_to 'Source Code',    source_code_path, target: '_blank'
       .h-4.w-px(class='bg-slate-500/20')
       = link_to 'Support',        support_path, target: '_blank'

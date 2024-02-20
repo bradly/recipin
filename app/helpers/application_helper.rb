@@ -22,4 +22,8 @@ module ApplicationHelper
       icon "fa-#{variant}", name.to_s.dasherize, text, class: "fa-#{size} #{icon_class}"
     end
   end
+
+  def url_host(url)
+    URI.parse(url).host.remove /\Awww\./
+  end
 end
