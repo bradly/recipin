@@ -133,6 +133,7 @@ GEM
     irb (1.11.1)
       rdoc
       reline (>= 0.4.2)
+    iso8601 (0.13.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -279,6 +280,7 @@ DEPENDENCIES
   haml-rails
   hashie (~> 5.0)
   importmap-rails
+  iso8601
   jbuilder
   nokogiri
   pg
