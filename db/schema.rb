@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_08_161820) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_23_210258) do
+  create_table "notes", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_notes_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -20,6 +28,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_161820) do
     t.datetime "updated_at", null: false
     t.text "schema"
     t.text "data"
+    t.string "prep_time"
+    t.string "cook_time"
+    t.string "total_time"
+    t.text "instructions"
+    t.text "ingredients"
+    t.string "servings"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +48,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_161820) do
     t.index ["remember_token"], name: "index_users_on_remember_token", unique: true
   end
 
+  add_foreign_key "notes", "recipes"
 end

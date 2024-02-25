@@ -1,6 +1,7 @@
 class SchemaExtractor
   require 'open-uri'
   require 'iso8601'
+  include ActionView::Helpers::DateHelper
 
   USER_AGENT = "Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36"
 
@@ -11,57 +12,53 @@ class SchemaExtractor
   end
 
   def name
-    data.dig('headline').presence
+    schema.dig('headline').presence ||
+      schema.dig('name').presence
   end
 
   def description
-    data.dig('description').presence
+    schema.dig('description').presence
   end
 
   def image_url
-    data.dig('thumbnailUrl').presence ||
-      (data.dig('image')&.is_a?(String) && data.dig('image')).presence ||
-      data.dig('image', 'url')
+    return schema.dig('thumbnailUrl') if schema.dig('thumbnailUrl').presence
+
+    case schema.dig('image')
+    when String
+      schema.dig('image')
+    when Array
+      schema.dig('image', 0)
+    when Hash
+      schema.dig('image', 'url')
+    end
   end
 
   def prep_time
-    data.dig('prepTime').presence
-  end
-
-  def prep_time_in_words
-    duration_in_words(prep_time)
+    duration_in_words schema.dig('prepTime').presence
   end
 
   def cook_time
-    data.dig('cookTime').presence
-  end
-
-  def cook_time_in_words
-    duration_in_words(cook_time)
+    duration_in_words schema.dig('cookTime').presence
   end
 
   def total_time
-    data.dig('totalTime').presence
-  end
-
-  def total_time_in_words
-    duration_in_words(total_time)
+    duration_in_words schema.dig('totalTime').presence
   end
 
   def ingredients
-    data.dig('recipeIngredient').presence
+    schema.dig('recipeIngredient').presence
   end
 
   def instructions
-    Array.wrap(data.dig('recipeInstructions').presence).collect { _1['text'] }
+    Array.wrap(schema.dig('recipeInstructions').presence).collect { _1['text'] }
   end
 
   def servings
-    Array.wrap(data.dig('recipeYield').presence).first
+    Array.wrap(schema.dig('recipeYield').presence).first
   end
 
-  def data
-    schemas[:recipe] || schemas[:article]
+  def schema
+    (schemas[:recipe] || schemas[:article]).to_h
   end
 
   def schemas
@@ -86,8 +83,7 @@ class SchemaExtractor
   end
 
   def duration_in_words(duration_string)
-    duration = ISO8601::Duration.new(duration_string).to_seconds
-    future_time = duration.seconds.from_now
-    ActionView::Helpers::DateHelper.distance_of_time_in_words(Time.current, future_time)
+    duration = ISO8601::Duration.new(duration_string)
+    distance_of_time_in_words(Time.current, duration.to_seconds.seconds.from_now)
   end
 end

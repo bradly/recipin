@@ -11,6 +11,10 @@ module ApplicationHelper
     end
   end
 
+  def parse(...)
+    JSON.parse(...)
+  end
+
   def component_link
     tag.span class: 'absolute inset-x-0 -top-px bottom-0'
   end
@@ -25,5 +29,13 @@ module ApplicationHelper
 
   def url_host(url)
     URI.parse(url).host.remove /\Awww\./
+  end
+
+  def wrap_in_tag(tag, strings)
+    Array.wrap(strings).map { content_tag(tag, _1) }.join.html_safe
+  end
+
+  def wrap_numerics(str, tag: 'span')
+    strip_tags(str).gsub(/(\d+\/\d+|\d+\.\d+|\d+°?)/) { "<#{tag} class='numeric'>#{$1}</#{tag}>" }.html_safe
   end
 end

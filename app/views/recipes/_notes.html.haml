@@ -1,0 +1,9 @@
+.border.border-gray-200.rounded-lg.overflow-hidden.shadow-sm
+  .bg-gray-50.py-3.px-4.border-b.border-gray-200
+    %h2.text-xs.font-semibold= icon_for :note_sticky, text: 'Notes'
+  %ul.w-full.divide-y.divide-gray-200
+    - @recipe.notes.each do |note|
+      %li.px-4.py-3.text-xs= note
+  %form.text-xs
+    %textarea.focus:ring-0.focus:border-0.focus:border-none.m-0.px-2.block.text-xs.w-full.border-0.border-none.h-16.border-white.ring-0.shadow-none{ placeholder: "Add notes..." }
+    %button.text-end.justify-end.block.w-full.text-start.text-xs.bg-gray-50.hover:bg-gray-100.py-3.px-4.border-t.border-gray-200.font-semibold.shadow-sm Save notes &rarr;

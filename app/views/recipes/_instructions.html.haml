@@ -1,0 +1,7 @@
+.border.border-gray-200.rounded-lg.overflow-hidden.shadow-sm
+  .bg-gray-50.py-4.px-6.border-b.border-gray-200
+    %h2.text-sm.font-semibold Instructions
+  %ul.w-full.divide-y.divide-gray-200
+    - @recipe.instructions.each do |instruction|
+      %li.px-6.py-4.text-sm
+        = wrap_numerics(instruction)

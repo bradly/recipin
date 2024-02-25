@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   root "recipes#index"
   resources :recipes
 

@@ -1,0 +1,8 @@
+.border.border-gray-200.rounded-lg.overflow-hidden.shadow-sm
+  .bg-gray-50.py-3.px-4.border-b.border-gray-200
+    %h2.text-xs.font-semibold= icon_for :clipboard, text: 'Reminders'
+
+  %ul.w-full.divide-y.divide-gray-200
+    - ['Preheat to 450ºF', 'Milk, butter, and eggs should be room temp'].each do |reminder|
+      %li.px-4.py-3.text-xs
+        = reminder
