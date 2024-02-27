@@ -9,6 +9,7 @@ body {
   @apply mx-4;
 }
 
+.border-section { @apply border-gray-200; }
 .muted { @apply text-gray-500; }
 
 .hover-links .divider { @apply h-4 w-px bg-slate-500/20; }
@@ -18,7 +19,7 @@ nav a {
 }
 
 footer nav a {
-  @apply border-t-0 border-b-2;
+  @apply border-t-0 border-b-2 pb-8;
 }
 
 .page-header {

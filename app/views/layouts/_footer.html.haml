@@ -1,7 +1,7 @@
-%footer.mx-auto.mt-32.w-full.max-w-container.muted.border-t.border-gray-200.text-center.text-sm.py-10
+%footer.border-t.border-section.mx-auto.mt-32.w-full.max-w-container.text-center.pt-10.font-semibold.text-gray-700.hover:text-gray:900
   .mb-8.flex.gap-2.justify-center= render 'layouts/brand'
-  %nav.flex.justify-center.gap-x-10.text-sm.font-semibold
-    = link_to 'Source Code',       source_code_path, class: 'nav-link', target: :_blank
-    = link_to 'Support',               support_path, class: 'nav-link', target: :_blank
-    = link_to 'Privacy Policy', privacy_policy_path, class: 'nav-link'
-    = link_to 'Changelog',           changelog_path, class: 'nav-link', target: :_blank
+  %nav.flex.justify-center.text-sm
+    = link_to 'Source Code',       source_code_path, target: :_blank
+    = link_to 'Support',               support_path, target: :_blank
+    = link_to 'Privacy Policy', privacy_policy_path
+    = link_to 'Changelog',           changelog_path, target: :_blank
