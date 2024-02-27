@@ -9,28 +9,16 @@ body {
   @apply mx-4;
 }
 
-.muted {
-  @apply text-gray-500;
+.muted { @apply text-gray-500; }
+
+.hover-links .divider { @apply h-4 w-px bg-slate-500/20; }
+
+nav a {
+  @apply pt-8 px-6 border-t-2 border-transparent hover:border-gray-900 hover:text-gray-900;
 }
 
-.hover-link {
-  @apply border-b-2 border-gray-100 hover:border-amber-100;
-}
-
-.hover-links a {
-  @apply hover-link;
-}
-
-.hover-links .divider {
-  @apply h-4 w-px bg-slate-500/20;
-}
-
-.nav-link:hover, .nav-link.active {
-  @apply hover-link;
-}
-
-.nav-link {
-  @apply pb-2 pt-3 border-b-2 hover-link;
+footer nav a {
+  @apply border-t-0 border-b-2;
 }
 
 .page-header {
@@ -42,7 +30,7 @@ body {
 }
 
 .page-header a {
-  @apply text-sm font-medium hover-link;
+  @apply text-sm font-medium;
 }
 
 .actions {

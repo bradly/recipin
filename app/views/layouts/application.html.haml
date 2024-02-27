@@ -3,18 +3,6 @@
   = render 'layouts/head'
   %body
     %main.container.mx-auto.max-w-4xl
-      -#= render 'layouts/header'
-      -#.mx-auto.text-center.mb-8= render 'layouts/flash'
-      -# .page-header= yield :page_header
-      -#.grid.grid-cols-4.gap-8
-        - if feed_enabled?
-          .col-span-3= yield
-          .col-span-1= render 'layouts/feed'
-        - else
-          .col-span-4= yield
-      .px-4.py-4.border-b.border-gray-200
-        = render 'recipes/header'
-
+      = render 'recipes/header'
       = yield
-
       = render 'layouts/footer'
