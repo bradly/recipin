@@ -1,16 +1,17 @@
 = content_for :title do
   Sign in to your account
 
-= form_for :session, url: session_path do |form|
-  = form.label :email
-  = form.text_field :email
+= form_for :session, url: session_path, class: 'flex flex-col gap-y-2' do |form|
+  .form-group
+    = form.label :email
+    = form.text_field :email
 
-  = form.label :password
-  = form.password_field :password
+  .form-group
+    = form.label :password
+    = form.password_field :password
 
-  .mt-8
+  .form-group
     = form.submit 'Sign in'
 
-%p.mt-10.text-center.text-sm.text-gray-500
-  Don't have an account?
-  = link_to 'Sign up now', sign_up_path, class: 'font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
+  %p.text-center.text-sm.muted
+    Don't have an account? #{link_to 'Sign up now', sign_up_path}
