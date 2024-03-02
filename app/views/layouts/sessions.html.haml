@@ -4,7 +4,10 @@
   %body#users-layout.h-full
     .flex.min-h-full.flex-col.justify-center.px-6.py-12.px-8.gap-y-6
       %h2.mx-auto.w-full.max-w-sm.flex.justify-center.normal-case.text-center.text-base.font-semibold.tracking-tight.text-gray-700
-        = icon_for :utensils, variant: :solid, gap: 3, text: (flash[:alert].presence || yield(:title))
+        = icon_for :utensils, variant: :solid, gap: '3', text: 'Recipin'
 
       .mx-auto.w-full.max-w-sm
+        .text-center.px-10.flex.flex-col.gap-y-3.text-sm.font-semibold
+          = yield :subtitle
+          .font-semibold.text-red-700= flash[:alert].presence
         = yield

@@ -1,17 +1,19 @@
-= content_for :title do
+= content_for :subtitle do
   Sign in to your account
 
-= form_for :session, url: session_path, class: 'flex flex-col gap-y-2' do |form|
+= form_for :session, url: session_path, class: 'flex flex-col gap-y-2 hover-link' do |form|
   .form-group
     = form.label :email
-    = form.text_field :email
+    = form.email_field :email, value: params.dig(:session, :email)
 
   .form-group
-    = form.label :password
+    .flex.justify-between.items-baseline
+      = form.label :password
+      = link_to 'Forgot your password?', new_password_path, class: 'text-xs'
     = form.password_field :password
 
   .form-group
     = form.submit 'Sign in'
 
-  %p.text-center.text-sm.muted
-    Don't have an account? #{link_to 'Sign up now', sign_up_path}
+  %p.text-center.text-sm.muted.font-medium
+    Don't have an account? #{link_to 'Sign up now', sign_up_path, class: 'font-semibold'}

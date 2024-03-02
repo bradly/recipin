@@ -1,9 +1,13 @@
-#clearance.password-reset
-  %h2= t(".title")
-  %p= t(".description")
-  = form_for :password, url: passwords_path do |form|
-    .text-field
-      = form.label :email
-      = form.email_field :email
-    .submit-field
-      = form.submit
+= content_for :subtitle do
+  Enter your email address to be emailed a link to reset your password
+
+= form_for :password, url: passwords_path, class: 'flex flex-col gap-y-2 hover-link' do |form|
+  .form-group
+    = form.label :email
+    = form.text_field :email, value: params.dig(:password, :email)
+
+  .form-group
+    = form.submit 'Reset Password'
+
+  %p.text-center.text-sm.muted.font-medium
+    Don't have an account? #{link_to 'Sign up now', sign_up_path, class: 'font-semibold'}

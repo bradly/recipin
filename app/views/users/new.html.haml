@@ -1,10 +1,10 @@
-= content_for :title do
+= content_for :subtitle do
   Sign up for an account
 
-= form_for :user, url: users_path, class: 'flex flex-col gap-y-2' do |form|
+= form_for :user, url: users_path, class: 'flex flex-col gap-y-2 hover-link' do |form|
   .form-group
     = form.label :email
-    = form.text_field :email
+    = form.email_field :email
 
   .form-group
     = form.label :password

@@ -13,6 +13,7 @@ body {
 .muted { @apply text-gray-500; }
 
 .hover-links .divider { @apply h-4 w-px bg-slate-500/20; }
+a.hover-link, .hover-link a { @apply hover:border-b hover:border-gray-300; }
 
 nav a {
   @apply pt-8 px-6 border-t-2 border-transparent hover:border-gray-900 hover:text-gray-900;
@@ -50,6 +51,10 @@ input, textarea {
     @apply w-2/3 mb-4 flex text-sm border-0 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600;
 }
 
+.field_with_errors input {
+    @apply ring-yellow-300 focus-within:ring-yellow-600;
+}
+
 textarea {
   @apply w-full h-32;
 }
@@ -70,8 +75,16 @@ ul li:last-child .vert-line {
   @apply block text-sm font-medium;
 }
 
-#users-layout input[type="text"], #users-layout input[type="password"] {
+#users-layout input[type="text"],
+#users-layout input[type="email"],
+#users-layout input[type="password"] {
   @apply block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+#users-layout .field_with_errors input[type="text"],
+#users-layout .field_with_errors input[type="email"],
+#users-layout .field_with_errors input[type="password"] {
+  @apply ring-yellow-300 placeholder:text-yellow-400 focus:ring-indigo-600
 }
 
 #users-layout input[type="submit"] {
@@ -79,7 +92,7 @@ ul li:last-child .vert-line {
 }
 
 #users-layout a {
-  @apply font-semibold text-indigo-500 hover:text-indigo-600;
+  @apply font-semibold text-indigo-500 hover:text-indigo-600 hover-link;
 }
 
 .flash.alert {
