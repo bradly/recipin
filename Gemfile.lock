@@ -75,6 +75,8 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
     argon2 (2.3.0)
       ffi (~> 1.15)
       ffi-compiler (~> 1.0)
@@ -95,6 +97,9 @@ GEM
       railties (>= 5.0)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
+    crack (1.0.0)
+      bigdecimal
+      rexml
     crass (1.0.6)
     date (3.3.4)
     debug (1.9.1)
@@ -122,6 +127,7 @@ GEM
       activesupport (>= 5.1)
       haml (>= 4.0.6)
       railties (>= 5.1)
+    hashdiff (1.1.0)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -148,6 +154,7 @@ GEM
     marcel (1.0.2)
     mini_mime (1.1.5)
     minitest (5.21.2)
+    mr_video (1.2.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.9.1)
@@ -169,6 +176,7 @@ GEM
     pg (1.5.4)
     psych (5.1.2)
       stringio
+    public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
@@ -218,6 +226,7 @@ GEM
       connection_pool
     reline (0.4.2)
       io-console (~> 0.5)
+    rexml (3.2.6)
     ruby2_keywords (0.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -256,11 +265,16 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    vcr (6.2.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webmock (3.23.0)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.8.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -282,6 +296,7 @@ DEPENDENCIES
   importmap-rails
   iso8601
   jbuilder
+  mr_video
   nokogiri
   pg
   puma (>= 5.0)
@@ -294,7 +309,9 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails
   turbo-rails
+  vcr
   web-console
+  webmock
 
 RUBY VERSION
    ruby 3.2.0p0

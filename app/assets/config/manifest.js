@@ -3,3 +3,5 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link_tree ../builds
+//= link mr_video/application.css
+//= link mr_video/application.js

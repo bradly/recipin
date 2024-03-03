@@ -15,6 +15,9 @@ gem "redis", ">= 4.0.1"
 gem "bootsnap", require: false
 
 group :development, :test do
+  gem 'vcr'
+  gem 'mr_video'
+  gem 'webmock'
   gem "debug", platforms: %i[ mri windows ]
 end
 
