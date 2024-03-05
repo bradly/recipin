@@ -39,4 +39,4 @@
 
 /config/credentials/production.key
 
-/test/fixtures/vcr_cassettes/*
+/test/vcr_cassettes/*
