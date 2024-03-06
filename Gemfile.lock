@@ -325,20 +325,20 @@ DEPENDENCIES
   guard
   guard-minitest
   haml-rails
-  hashie (~> 5.0)
+  hashie
   importmap-rails
   iso8601
   jbuilder
   mr_video
   nokogiri
   pg
-  puma (>= 5.0)
-  rails (~> 7.1.3)
+  puma
+  rails
   redis (>= 4.0.1)
   simple_form
   simple_form-tailwind
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3
   stimulus-rails
   tailwindcss-rails
   turbo-rails
