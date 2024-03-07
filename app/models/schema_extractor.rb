@@ -1,10 +1,10 @@
-require 'open-uri'
-require 'nokogiri'
-require 'iso8601'
-require 'json'
-require 'action_view'
-
 class SchemaExtractor
+  require 'open-uri'
+  require 'nokogiri'
+  require 'iso8601'
+  require 'json'
+  require 'action_view'
+
   include ActionView::Helpers::DateHelper
 
   USER_AGENT = "Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36"

@@ -37,4 +37,5 @@ group :development, :test do
   gem 'debug'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'guard-bundler'
 end
