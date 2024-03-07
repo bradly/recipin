@@ -14,17 +14,16 @@ body {
 
 .hover-links .divider { @apply h-4 w-px bg-slate-500/20; }
 a.hover-link, .hover-link a { @apply hover:border-b hover:border-gray-300; }
-
-nav a {
-  @apply pt-8 px-6 border-t-2 border-transparent hover:border-gray-900 hover:text-gray-900;
-}
+.hover-border { @apply border-transparent hover:border-gray-900; }
+a { @apply text-gray-700 hover:text-gray-900; }
+nav a { @apply pt-8 px-6 border-t-2 hover-border; }
 
 footer nav a {
   @apply border-t-0 border-b-2 pb-8;
 }
 
 .page-header {
-  @apply mb-8 flex justify-between;
+  @apply mt-8 mb-10 flex justify-between items-baseline;
 }
 
 .page-header h1 {
@@ -32,7 +31,7 @@ footer nav a {
 }
 
 .page-header a {
-  @apply text-sm font-medium;
+  @apply text-sm font-medium border-b-2 pb-4 hover-border
 }
 
 .actions {
