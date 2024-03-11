@@ -121,3 +121,29 @@ ul li:last-child .vert-line {
 .numeric {
   @apply font-bold;
 }
+
+@keyframes bounce-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+}
+
+.animate-bounce-left {
+  display: inline-block;
+  transition: transform 0.8s ease;
+}
+
+.animate-bounce-left:hover {
+  animation: bounce-left 0.8s ease infinite;
+}
+
+.sidebar-button {
+  @apply bg-gray-50 hover:bg-gray-100 border-t border-gray-200 shadow block w-full;
+}
+
+.sidebar-button span {
+  @apply text-end px-4 py-3 animate-bounce-left text-xs font-semibold w-full;
+}

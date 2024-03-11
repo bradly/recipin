@@ -11,9 +11,17 @@ class ResourceController < ApplicationController
 
   def create
     if @resource.save
-      redirect_to @resource, notice: save_success_message
+      redirect_to create_redirect_path, notice: save_success_message
     else
       render :new, alert: save_failed_message
+    end
+  end
+
+  def create_redirect_path
+    if @parent
+      [@parent, @resource]
+    else
+      @resource
     end
   end
 
