@@ -1,4 +1,4 @@
-<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div data-controller="modal" class="hidden relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
   <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -6,7 +6,6 @@
 
       <div class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8  sm:p-6">
         <%= form_for Recipe.new do |form| %>
-
           <div class="mx-auto flex h-12 w-12 text-green-600 items-center justify-center rounded-full bg-green-100">
             <%= icon_for(:utensils, variant: :solid) %>
           </div>
@@ -16,7 +15,7 @@
 
             <div class="mt-6">
               <div class="flex items-baseline gap-2">
-                <div class="w-1/2 text-end"><%= form.label :url %></div>
+                <div class="w-1/2 text-end"><%= form.label :url, 'URL' %></div>
                 <%= form.text_field :url %>
               </div>
 
@@ -39,6 +38,9 @@
             <%= form.submit 'Save Recipe' %>
           </div>
         <% end %>
+        <div class="absolute right-0 top-0 py-2 pr-4">
+          <button data-action="click->modal#close" class="text-gray-400"><%= icon_for :xmark, variant: :solid %></button>
+        </div>
       </div>
     </div>
   </div>
