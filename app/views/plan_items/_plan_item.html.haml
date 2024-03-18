@@ -1,0 +1,11 @@
+.planner-item.relative.flex.mb-8.items-center.space-x-3.rounded-lg.border.border-gray-300.bg-white.px-6.py-5.shadow-sm.focus-within:ring-2.focus-within:ring-indigo-500.focus-within:ring-offset-2.hover:border-gray-400
+  .flex-shrink-0
+    = image_tag plan_item.recipe.image_url, class: 'h-10 w-10 rounded-full'
+
+  .min-w-0.flex-1
+    = link_to '#', class: 'focus:outline-none', data: { action: 'planner#moveItem:prevent' } do
+      %span.absolute.inset-0(aria-hidden="true")
+      %p.mb-1.text-sm.font-medium
+        = plan_item.recipe.name
+      %p.truncate.text-xs.muted
+        = plan_item.recipe.tags.join(', ')

@@ -14,6 +14,10 @@ class Recipe < ApplicationRecord
   before_save :update_metadata
 
   has_many :notes, dependent: :destroy
+  has_many :plan_items, dependent: :destroy
+  has_many :plans, through: :plan_items
+
+  belongs_to :user
 
   normalizes :name, with: -> name {
     ActionController::Base.helpers.sanitize(

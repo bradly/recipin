@@ -1,0 +1,13 @@
+.page-header
+  %h1 Plans
+  = link_to icon_for(:plus, text: 'Create a New Plan', size: '1x'), [:new, :plan], class: 'modal-button'
+
+- if @plans.present?
+  %ul.grid.grid-cols-3.gap-6
+    = render @plans
+- else
+  = link_to [:new, :plan], class: 'modal-button w-2/3 mx-auto block relative rounded-lg items-center border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' do
+    = icon_for :utensils, variant: 'solid'
+    .mt-2.block.text-sm.font-semibold.text-gray-900 Start a new plan
+
+= render 'new_modal'

@@ -1,0 +1,11 @@
+.px-4
+  %h1.mt-8.mb-8.text-base.font-semibold= @plan.name
+
+  .grid.grid-cols-2.gap-8{ "data-controller" => "planner" }
+    .col-span-1{"data-planner-target" => "plannedList"}
+      %h4.mb-4.uppercase.font-semibold Planned
+      = render @plan.plan_items
+
+    .col-span-1{"data-planner-target" => "availableList"}
+      %h4.mb-4.uppercase.font-semibold Available
+      = render @plan.available_items
