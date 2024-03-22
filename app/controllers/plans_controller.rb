@@ -3,7 +3,7 @@ class PlansController < ResourceController
   login_required
 
   def permitted_params
-    [:name]
+    [:name, recipe_ids: []]
   end
 
   def create_redirect_path
