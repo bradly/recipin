@@ -38,4 +38,5 @@ group :development, :test do
   gem 'guard'
   gem 'guard-minitest'
   gem 'guard-bundler'
+  gem 'factory_bot_rails'
 end

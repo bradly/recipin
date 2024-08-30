@@ -13,7 +13,8 @@ class ResourceController < ApplicationController
     if @resource.save
       redirect_to create_redirect_path, notice: save_success_message
     else
-      render :new, alert: save_failed_message
+      flash.now[:alert] = save_failed_message
+      render :new
     end
   end
 
@@ -29,13 +30,14 @@ class ResourceController < ApplicationController
     if @resource.update(resource_params)
       redirect_to @resource, notice: save_success_message
     else
-      render :edit, alert: save_failed_message
+      flash.now[:alert] = save_failed_message
+      render :edit
     end
   end
 
   def destroy
     @resource.destroy!
-    redirect_to [collection_name.to_sym]
+    redirect_to [collection_name.to_sym], notice: "#{resource_name.titleize} was successfully deleted."
   end
 
   private
@@ -86,7 +88,7 @@ class ResourceController < ApplicationController
   end
 
   def resource_params
-    params.require(resource_name).permit(*permitted_params)
+    params.require(resource_name).permit(*self.class.permitted_params)
   end
 
   def save_success_message
