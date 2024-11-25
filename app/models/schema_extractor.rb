@@ -9,42 +9,68 @@ class SchemaExtractor
 
   USER_AGENT = "Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36"
 
+  class StringExtractor
+    def initialize(schema, keys)
+      @schema = schema
+      @keys = keys
+    end
+
+    def extract
+      keys.find(&:presence)
+    end
+  end
+
+  class ImageExtractor
+    def initialize(schema, key)
+      @schema = schema
+      @key = key
+    end
+
+    def extract
+      image = @schema['image'].presence || @schema['thumbnailUrl']
+
+      case image
+      when Array
+        image.first
+      when Hash
+        image['url']
+      else
+        image
+      end
+    end
+  end
+
   def initialize(url)
     @url = url
     @doc = Nokogiri::HTML(open_url)
   end
 
   def name
-    schema.dig('headline').presence ||
-      schema.dig('name').presence
+    StringExtractor.new(self, 'headline', 'name')
   end
 
   def description
-    schema.dig('description').presence
+    StringExtractor.new(self, 'description')
   end
 
   def image_url
-    image = schema['image']
-    return schema['thumbnailUrl'] if schema['thumbnailUrl']
-    return image if image.is_a?(String)
-    return image.first if image.is_a?(Array)
-    return image['url'] if image.is_a?(Hash)
+    ImageExtractor.new(self, 'image', 'thumbnailUrl')
   end
 
   def prep_time
-    duration_in_words schema.dig('prepTime').presence
+    DurationExtractor.new(self, 'prepTime')
   end
 
   def cook_time
-    duration_in_words schema.dig('cookTime').presence
+    DurationExtractor.new(self, 'cookTime')
   end
 
   def total_time
-    duration_in_words schema.dig('totalTime').presence
+    DurationExtractor.new(self, 'totalTime')
   end
 
   def ingredients
-    schema.dig('recipeIngredient').presence
+    DurationExtractor.new(self, 'recipeIngredient')
   end
 
   def instructions

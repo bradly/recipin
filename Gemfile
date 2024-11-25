@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.3.5'
+ruby '3.3.6'
 
 gem 'rails'
 gem 'sprockets-rails'
@@ -39,4 +39,5 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'guard-bundler'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end

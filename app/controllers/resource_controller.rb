@@ -46,8 +46,8 @@ class ResourceController < ApplicationController
     before_action(:require_login, ...)
   end
 
-  def self.permitted_params(...)
-    public_send(:"permitted_params=", ...)
+  def self.permitted_params(*params)
+    public_send(:"permitted_params=", params)
   end
 
   def permitted_params

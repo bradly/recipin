@@ -40,7 +40,7 @@ class Recipe < ApplicationRecord
   end
 
   def schema_extractor
-    @schema_extractor||= SchemaExtractor.new(url)
+    @schema_extractor ||= SchemaExtractor.new(url)
   end
 
   def ingredients
