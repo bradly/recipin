@@ -1,0 +1,2 @@
+web: bin/rails server
+python_service: python3 bin/ingredient_to_json.py --port 3001

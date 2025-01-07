@@ -1,0 +1,27 @@
+%h2= recipe.name
+
+.sections
+  - if recipe_timings(recipe).present?
+    %section
+      %h3 Timing
+      %ul
+        - recipe_timings(recipe).each do |label, value|
+          %li
+            %span= label
+            %span= value
+
+  %section
+    %h3 Ingredients
+    %ul
+      - recipe.ingredients.each do |ingredient|
+        %li= ingredient.marked_up_text.html_safe
+
+  %section
+    %h3 Instructions
+    %ul
+      - recipe.instructions.each do |instruction|
+        %li= instruction.text
+
+  - if recipe.featured_image.present?
+    %section.fancy.vacuum
+      = image_tag recipe.featured_image.variant(:fit_500)
