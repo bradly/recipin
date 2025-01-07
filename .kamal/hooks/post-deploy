@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Backing up production db..."
+bin/kamal prod_db > db/production.sqlite3

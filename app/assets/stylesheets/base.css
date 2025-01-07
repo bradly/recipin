@@ -1,0 +1,68 @@
+html, body, * {
+  background-color: white;
+  color: black;
+  font-family: ui-monospace, monospace, sans-serif;
+}
+
+body {
+  margin: 4rem;
+  font-size: 15px;
+  line-height: 1.5lh;
+  display: grid;
+  gap: 2rem;
+}
+
+a { text-decoration: none; }
+a, a:visited { color: currentColor; }
+a:hover img { box-shadow: 0 4px 4px -2px lightgray; }
+
+h1, h2, h3, h4, h5, h6, ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 1rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+h1 { font-size: var(--lg); }
+h2 { text-transform: uppercase; }
+h3 { border-bottom: 1px dashed gray; }
+
+ul { margin-left: 2ch; }
+img { max-width: 80ch; }
+
+.sections {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.sections section:first-child { flex-grow: 1; }
+
+section {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px dashed gray;
+  box-shadow: 0 8px 8px -4px lightgray;
+}
+
+.button {
+  border: 1px solid gray;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.button:hover {
+  box-shadow: 0.2rem 0.2rem pink;
+}
+
+.senpai { visibility: hidden; }
+.kohai:hover > .senpai { visibility: visible; }

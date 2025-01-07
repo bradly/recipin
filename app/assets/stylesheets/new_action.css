@@ -1,0 +1,11 @@
+.new-action {
+  height: 75vh;
+  width: 36ch;
+  align-items: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2rem;
+}
+
+.new-action footer { text-align: center; }

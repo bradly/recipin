@@ -1,0 +1,57 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5lh;
+  text-align: start;
+}
+
+label {
+  display: grid;
+  font-size: var(--xsmall-font-size);
+}
+
+input, textarea {
+  padding: .5rem;
+  padding-bottom: .3rem;
+  border-radius: .375rem .375rem 0 0;
+  border-width: 1px;
+  border-color: var(--accent-color);
+  border-style: dotted dotted solid;
+  border-bottom-width: 3px;
+  outline: none;
+}
+
+input::placeholder {
+  opacity: 0;
+}
+
+input:not(:placeholder-shown),
+textarea:not(:placeholder-shown) {
+  border-color: var(--accent-color-hover);
+}
+
+input:focus, textarea:focus {
+  border-style: solid;
+  border-color: var(--accent-color-hover);
+}
+
+input:focus, input:hover {
+  box-shadow: 0 8px 8px -4px lightgray;
+}
+
+input[type=submit], button {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: .375rem;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+
+input[type=submit]:hover, button:hover {
+  background-color: var(--accent-color-hover);
+  box-shadow: 0 8px 8px -4px lightgray;
+}

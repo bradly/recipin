@@ -1,0 +1,6 @@
+%h2 Recipes
+
+%ul.vert
+  = render @recipes
+
+%p= link_to '+ Add recipe', [:new, :recipe], class: "button"

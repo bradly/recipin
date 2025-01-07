@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
+    %meta{ content: 'width=device-width,initial-scale=1', name: 'viewport' }/
+
+    %title Recipin
+
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    - %w[variables base forms flash header footer new_action].each do
+      = stylesheet_link_tag it, "data-turbo-track": "reload"
+
+  %body{ class: body_classes }
+    = render "layouts/header"
+    = render "layouts/flash"
+    %div= yield
+    = render "layouts/footer"

@@ -1,0 +1,5 @@
+.header
+  %h1= link_to "Recipin", root_path
+
+  %nav
+    = link_to "Log out", session_path, method: :delete if authenticated?

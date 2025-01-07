@@ -1,0 +1,22 @@
+:root {
+  --xs: 0.6rem;
+  --sm: 0.8rem;
+  --md: 1.0rem;
+  --lg: 1.5rem;
+  --xl: 1.5rem;
+
+  --smol-font-size:   0.5rem;
+  --xsmall-font-size: 0.75rem;
+  --small-font-size:  0.875rem;
+  --medium-font-size: 1rem;
+  --large-font-size:  1.25rem;
+  --xlarge-font-size: 1.5rem;
+  --thicc-font-size:  2rem;
+
+  --hue: 190;
+  --accent-color: hsl(var(--hue), 80%, 42%);
+  --accent-color-hover: hsl(from var(--accent-color) h s calc(l * 1.1));
+
+  --notice-color: orange;
+  --alert-color: darkred;
+}

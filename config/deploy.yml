@@ -1,0 +1,37 @@
+service: recipin
+image: <%= ENV["DOCKER_USERNAME"] %>/recipin
+
+servers:
+  web:
+    - <%= ENV["RECIPIN_IP_ADDRESS"] %>
+
+proxy:
+  ssl: true
+  hosts:
+    - recipin.com
+    - www.recipin.com
+  forward_headers: true
+
+registry:
+  username: <%= ENV["DOCKER_USERNAME"] %>
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  secret:
+    - RAILS_MASTER_KEY
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+  prod_db: app exec -p -H -r web --reuse --no-interactive "cat storage/production.sqlite3"
+
+volumes:
+  - "recipin_storage:/rails/storage"
+
+asset_path: /rails/public/assets
+
+builder:
+  arch: amd64

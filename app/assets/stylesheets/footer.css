@@ -1,0 +1,19 @@
+footer {
+  display: block;
+  border-top: 1px dashed gray;
+  padding-top: 0.5rem;
+  font-size: var(--sm);
+  color: dimgray;
+}
+
+footer a:hover {
+  color: black;
+  text-shadow:
+  0  1rem hwb(from currentColor h w b / 0.6),
+  0  2rem hwb(from currentColor h w b / 0.4),
+  0  3rem hwb(from currentColor h w b / 0.3),
+  0  4rem hwb(from currentColor h w b / 0.2),
+  0  5rem hwb(from currentColor h w b / 0.1),
+  0  6rem hwb(from currentColor h w b / 0.05),
+  0  7rem hwb(from currentColor h w b / 0.025);
+}
