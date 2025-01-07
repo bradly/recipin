@@ -1,0 +1,5 @@
+%h3 Instructions
+
+%ul
+  - @recipe.instructions.each do |instruction|
+    %li= wrap_numerics(instruction)

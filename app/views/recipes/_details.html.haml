@@ -1,0 +1,4 @@
+%h2= @recipe.name
+
+- if @recipe.image_url.present?
+  = image_tag @recipe.image_url

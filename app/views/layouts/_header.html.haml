@@ -1,0 +1,11 @@
+.px-4.pb-4.border-b.border-section.font-semibold.text-gray-700.hover:text-gray:900
+  .flex.items-end.justify-between
+    .flex-1.border-1.border-black.pt-7.px-2.border-t-2.border-transparent.hover:border-gray-900
+      = render 'layouts/brand'
+    %nav.flex.text-sm
+      = link_to 'Dashboard', '#'
+      = link_to 'Discover',  '#'
+      = link_to 'Search',    '#'
+    .flex.flex-1.items-center.justify-end
+      = link_to icon_for(:bell), '#', class: 'border-1 border-black pt-7 px-2 border-t-2 border-transparent hover:border-gray-900'
+      = link_to icon_for(:circle_user), user_profile_path, class: 'border-1 border-black pt-7 px-2 border-t-2 border-transparent hover:border-gray-900'

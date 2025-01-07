@@ -1,0 +1,5 @@
+%h3 Ingredients
+
+%ul
+  - @recipe.ingredients.each do |ingredient|
+    %li= wrap_numerics(ingredient)

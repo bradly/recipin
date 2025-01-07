@@ -1,0 +1,5 @@
+%li
+  = link_to recipe do
+    %h3= recipe.name
+    = image_tag recipe.image_url if recipe.image_url
+  %p Added <time datetime="#{recipe.created_at}">#{time_ago_in_words recipe.created_at}</time>

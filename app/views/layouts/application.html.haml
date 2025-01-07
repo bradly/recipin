@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Recipin
+    %meta{ 'http-equiv': "Content-Type", content: "text/html" }/
+    %meta{ name: "viewport", content: "width=device-width,initial-scale=1" }/
+    %meta{ name: "mobile-web-app-capable", content: "yes" }/
+    %meta{ name: "apple-mobile-web-app-capable", content: "yes" }/
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+  %body{ class: body_classes }
+    .container
+      %h1 Recipin
+
+      - flash.each do |(kind, message)|
+        = tag.div(message, class: "flash flash-#{kind}")
+
+      = yield
+      %footer
+        %p Recipin is by invite only. #{link_to "Say hi", "mailto:vp_of_saying_hello@recipin.com"}.

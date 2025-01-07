@@ -1,0 +1,14 @@
+= form_for recipe do |form|
+  = form.label :name
+  = form.text_field :name
+
+  = form.label :url
+  = form.text_field :url
+
+  = form.label :description
+  = form.text_area :description
+
+  %code
+    = recipe.data
+
+  = form.submit
