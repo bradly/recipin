@@ -1,0 +1,15 @@
+= form_with url: session_path, class: 'flex flex-col gap-y-1 hover-link' do |form|
+  .form-group
+    = form.label :email
+    = form.email_field :email, value: params.dig(:session, :email)
+
+  .form-group
+    = form.label :password
+    = form.password_field :password
+
+  .form-group
+    = form.submit 'Sign in'
+
+  %p.text-center.text-sm.font-medium
+    Recipin is private.
+    = link_to 'Say hi.', root_path unless authenticated?

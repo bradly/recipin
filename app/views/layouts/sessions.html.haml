@@ -1,0 +1,13 @@
+!!!
+%html.h-full.bg-white
+  = render 'layouts/head'
+  %body#users-layout.h-full
+    .flex.min-h-full.flex-col.justify-center.px-6.pb-12.gap-y-2
+      %h2.text-center.text-2xl.font-bold.tracking-tight.text-gray-900
+        = icon_for :carrot, size: 'xl', wrapper_class: 'capitalize flex-col gap-y-6', variant: :solid, gap: '2', text: 'Recipin'
+
+      .mx-auto.w-full.max-w-sm
+        .text-center.px-10.flex.flex-col.gap-y-3.text-sm.font-semibold= yield :subtitle
+        = tag.div(flash[:alert], style: "color:red") if flash[:alert]
+        = tag.div(flash[:notice], style: "color:green") if flash[:notice]
+        = yield
