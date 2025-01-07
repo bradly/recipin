@@ -1,0 +1,10 @@
+= form_with url: session_path do |form|
+  = form.label :email do
+    Email:
+    = form.email_field :email, value: params.dig(:session, :email), placeholder: 'Email'
+
+  = form.label :password do
+    Password:
+    = form.password_field :password, placeholder: 'Password'
+
+  = form.submit 'Sign in'

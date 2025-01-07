@@ -1,0 +1,6 @@
+#!/bin/sh
+
+local_filename="db/production.$(date -Idate).sqlite3"
+echo "Backing up production db to $local_filename..."
+bin/kamal prod_db > $local_filename
+ls -l $local_filename

@@ -1,0 +1,18 @@
+= form_for recipe do |form|
+  = form.label :url do
+    URL:
+    = form.text_field :url
+
+  - if recipe.persisted?
+    = form.label :name do
+      Name:
+      = form.text_field :name
+
+    = form.label :description do
+      Description:
+      = form.text_area :description
+
+    %code
+      = recipe.data
+
+  = form.submit

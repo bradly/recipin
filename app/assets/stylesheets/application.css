@@ -1,0 +1,199 @@
+:root {
+  --smol-font-size: 0.5rem;
+  --xsmall-font-size: 0.75rem;
+  --small-font-size: 0.875rem;
+  --medium-font-size: 1rem;
+  --large-font-size: 1.25rem;
+  --xlarge-font-size: 1.5rem;
+  --thicc-font-size: 2rem;
+
+  --hue: 190;
+  --accent-color: hsl(var(--hue), 80%, 42%);
+  --accent-color-hover: hsl(from var(--accent-color) h s calc(l * 1.1));
+
+  --notice-color: darkyellow;
+  --alert-color: darkred;
+
+  --blackish: hsl(1, 25%, 15%);
+  --whiteish: hsl(50, 95%, 99%);
+}
+
+body { margin: 2rem; font-size: 15px; line-height: 1.25rem; }
+
+html, body, * {
+  background-color: var(--whiteish);
+  color: var(--blackish);
+  font-family: ui-monospace, monospace, sans-serif;
+}
+
+p { letter-spacing: 0.4px; }
+img { max-width: 25rem; }
+a, a:visited { color: currentColor; }
+a:hover { text-decoration: underline; }
+a:hover img { box-shadow: 0 4px 4px -2px lightgray; }
+
+footer {
+  display: block;
+  margin-top: 2rem;
+  border-top: 1px dashed gray;
+  font-size: var(--xsmall-font-size);
+}
+footer * { color: gray; }
+
+h1, h2, h3, h4, h5, h6,
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+section ul > li {
+  margin: 1rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  font-size: var(--medium-font-size);
+  font-weight: 600;
+  text-align: start;
+  letter-spacing: 0.8px;
+}
+h1 { padding-bottom: .85rem; border-bottom: 1px dashed gray; }
+
+h1 { font-size: var(--xlarge-font-size); }
+h1 a { text-decoration: none; }
+h2 { margin-bottom: 0; font-size: var(--medium-font-size); text-transform: uppercase; }
+h3 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed gray;
+}
+
+.sections { column-gap: 2rem; }
+section > ul > li { margin-left: 1rem; }
+
+@media (min-width:    0px) { .sections { column-count: 1; } }
+@media (min-width:  768px) { .sections { column-count: 2; } }
+@media (min-width: 1100px) { .sections { column-count: 3; } }
+
+section {
+  display: inline-block;
+  width: fit-content;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  break-inside: avoid;
+  border: 1px dashed gray;
+  box-shadow: 0 8px 8px -4px lightgray;
+}
+
+section img:only-child {
+  display: block;
+}
+
+.flash {
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: seashell;
+  border-width: 1px;
+  border-style: dotted;
+  font-size: var(--small-font-size);
+}
+
+.flash-notice {
+  color: var(--notice-color);
+  border-color: var(--notice-color);
+}
+
+.flash-alert {
+  color: var(--alert-color);
+  border-color: var(--alert-color);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .8rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .8rem;
+  text-align: start;
+}
+
+label {
+  display: grid;
+  font-size: var(--xsmall-font-size);
+}
+
+input, textarea {
+  padding: .5rem;
+  padding-bottom: .3rem;
+  border-radius: .375rem .375rem 0 0;
+  border-width: 1px;
+  border-color: var(--accent-color);
+  border-style: dotted dotted solid;
+  border-bottom-width: 3px;
+  outline: none;
+}
+
+input::placeholder {
+  opacity: 0;
+}
+
+input:not(:placeholder-shown),
+textarea:not(:placeholder-shown) {
+  border-color: var(--accent-color-hover);
+}
+
+input:focus, textarea:focus {
+  border-style: solid;
+  border-color: var(--accent-color-hover);
+}
+
+input:focus, input:hover {
+  box-shadow: 0 8px 8px -4px lightgray;
+}
+
+input[type=submit], button {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: .375rem;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+
+input[type=submit]:hover, button:hover {
+  background-color: var(--accent-color-hover);
+  box-shadow: 0 8px 8px -4px lightgray;
+}
+
+body.new-action, body.users-show {
+  height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+}
+
+
+body.new-action .container {
+  width: 20rem;
+}
+
+@media (min-width: 1100px) {
+  .sections { column-count: 3; }
+
+  body.new-action {
+    margin-top: -4rem;
+    align-items: center;
+  }
+}
+
+.ingredient-part:hover {
+  background-color: #f2f2f2;
+  padding: .25rem 0;
+}
