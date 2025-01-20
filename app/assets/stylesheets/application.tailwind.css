@@ -2,12 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+body {
+  font-family: ui-monospace, monospace;
+  -moz-osx-font-smoothing: grayscale;
+  @apply mx-4;
+}
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+.border-section { @apply border-gray-200; }
+.muted { @apply text-gray-500; }
+
+.hover-links .divider { @apply h-4 w-px bg-slate-500/20; }
+a.hover-link, .hover-link a { @apply hover:border-b hover:border-gray-300; }
+.hover-border { @apply border-transparent hover:border-gray-900; }
+a { @apply text-gray-700 hover:text-gray-900; }
+nav a { @apply pt-8 px-6 border-t-2 hover-border; }
+
+footer nav a {
+  @apply border-t-0 border-b-2 pb-8;
+}
+
+.page-header {
+  @apply mt-8 mb-10 flex justify-between items-baseline;
+}
+
+.page-header h1 {
+  @apply text-2xl font-bold leading-7;
+}
+
+.page-header a {
+  @apply text-sm font-medium border-b-2 pb-4 hover-border
+}
+
+.actions {
+  @apply flex gap-x-4;
+}
+
+h2 {
+  @apply uppercase;
+}
+
+label {
+  @apply text-sm font-medium;
+}
+
+input[type="text"], input, textarea {
+  @apply w-full;
+  @apply flex;
+  @apply text-sm;
+  @apply border-0;
+  @apply rounded-md;
+  @apply shadow-sm;
+  @apply ring-1;
+  @apply ring-inset;
+  @apply ring-gray-300;
+}
+
+.field_with_errors input {
+  @apply ring-yellow-300 focus-within:ring-yellow-600;
+}
+
+textarea {
+  @apply w-full h-32;
+}
+
+input[type="submit"] {
+  @apply rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:cursor-pointer hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+
+ul li:last-child .vert-line {
+  display: none;
+}
+
+#users-layout form {
+  @apply space-y-3;
+}
+
+#users-layout label {
+  @apply block text-sm font-medium;
+}
+
+#users-layout input[type="text"],
+#users-layout input[type="email"],
+#users-layout input[type="password"] {
+  @apply block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+}
+
+#users-layout .field_with_errors input[type="text"],
+#users-layout .field_with_errors input[type="email"],
+#users-layout .field_with_errors input[type="password"] {
+  @apply ring-yellow-300 placeholder:text-yellow-400 focus:ring-indigo-600
+}
+
+#users-layout input[type="submit"] {
+  @apply flex w-full justify-center rounded-md bg-indigo-500 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+
+#users-layout a {
+  @apply font-semibold text-indigo-500 hover:text-indigo-600 hover-link;
+}
+
+.flash.alert {
+  @apply bg-yellow-50 border-yellow-400 text-yellow-700;
+}
+
+.flash.alert i {
+  @apply text-yellow-400;
+}
+
+.flash.notice {
+  @apply bg-blue-50 border-blue-400 text-blue-700;
+}
+
+.flash.notice i {
+  @apply text-blue-400;
+}
+
+.numeric {
+  @apply font-bold;
+}
+
+@keyframes bounce-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px);
   }
 }
 
-*/
+.animate-bounce-left {
+  display: inline-block;
+  transition: transform 0.8s ease;
+}
+
+.animate-bounce-left:hover {
+  animation: bounce-left 0.8s ease infinite;
+}
+
+.sidebar-button {
+  @apply bg-gray-50 hover:bg-gray-100 border-t border-gray-200 shadow block w-full;
+}
+
+.sidebar-button span {
+  @apply text-end px-4 py-3 animate-bounce-left text-xs font-semibold w-full;
+}

@@ -1,0 +1,13 @@
+= form_for :session, url: root_path, class: 'flex flex-col gap-y-1 hover-link' do |form|
+  .form-group
+    = form.label :email
+    = form.email_field :email, value: params.dig(:session, :email)
+
+  .form-group
+    = form.label :password
+    = form.password_field :password
+
+  .form-group
+    = form.submit 'Sign in'
+
+  %p.text-center.text-sm.font-medium Recipin is invite only.
