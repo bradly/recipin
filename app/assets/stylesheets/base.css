@@ -12,7 +12,7 @@ body {
   gap: 2rem;
 }
 
-a { text-decoration: none; }
+a, .button_to { text-decoration: none; }
 a, a:visited { color: currentColor; }
 a:hover img { box-shadow: 0 4px 4px -2px lightgray; }
 
@@ -66,3 +66,7 @@ section {
 
 .senpai { visibility: hidden; }
 .kohai:hover > .senpai { visibility: visible; }
+
+form.button_to { display: inline; }
+form.button_to button { border: none; }
+form.button_to button:hover { cursor: pointer; text-decoration: underline; }
