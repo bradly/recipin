@@ -5,11 +5,11 @@ module SchemaExtractor
 
       case extracted
       when Hash
-        value["url"]
+        extracted["url"]
       when Array
-        value.first
+        extracted.first
       else
-        value
+        extracted
       end
     end
   end

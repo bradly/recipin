@@ -15,6 +15,7 @@ gem "iso8601"
 gem "solid_cache"
 gem "kamal", require: false
 gem "thruster", require: false
+gem 'twilio-ruby'
 
 group :development, :test do
   gem "debug"

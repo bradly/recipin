@@ -2,7 +2,7 @@ module SchemaExtractor
   class Base
     attr_reader :extracted
 
-    def initialize(schema, *keys)
+    def initialize(schema, keys = [])
       @schema = schema
       @keys = keys
     end
@@ -11,27 +11,17 @@ module SchemaExtractor
       new(...).extract
     end
 
+    def keys
+      Array.wrap(@keys).map(&:to_s)
+    end
+
     def extract
-      key = @keys.find { @schema[_1].presence }
-      @extracted = @schema[key]
+      @extracted = keys.map { @schema.dig(_1) }.compact.first
       process
     end
 
-    def process; end
-
-    def schema_dig(attr, keys = :text)
-      keys = Array.wrap(keys).map(&:to_s)
-
-      Array.wrap(schema.dig(attr.to_s).presence).collect do |value|
-        case value
-        when Hash
-          value.slice(*keys).first
-        when Array
-          value.first
-        else
-          value
-        end
-      end
+    def process
+      extracted
     end
   end
 end

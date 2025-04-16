@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.5rem;
-  border-bottom: 1px dashed gray;
+  border-bottom: 1px dashed var(--border-color);
 }
 
 .header nav {
-  font-size: var(--small-font-size);
+  font-size: var(--sm);
 }

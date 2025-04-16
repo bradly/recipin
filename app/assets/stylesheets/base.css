@@ -12,18 +12,19 @@ body {
   gap: 2rem;
 }
 
-a { text-decoration: none; }
-a, a:visited { color: currentColor; }
-a:hover img { box-shadow: 0 4px 4px -2px lightgray; }
+:any-link, .button_to { text-decoration: none; }
+:any-link { color: currentColor; }
+:any-link:hover { text-shadow: 1px 1px var(--accent-color); }
+:any-link:hover img { box-shadow: 0 4px 4px -2px var(--accent-color); }
+
+h1 :any-link:hover { text-shadow: 2px 2px var(--accent-color); }
 
 h1, h2, h3, h4, h5, h6, ul, li, p {
   margin: 0;
   padding: 0;
 }
 
-ul {
-  margin: 1rem 0;
-}
+ul { margin-bottom: 1rem; }
 
 h1, h2, h3, h4, h5, h6 { 
   font-size: 1rem;
@@ -31,8 +32,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: var(--lg); }
-h2 { text-transform: uppercase; }
-h3 { border-bottom: 1px dashed gray; }
+h2 { text-transform: uppercase; margin-bottom: 1rem; }
+h3 { border-bottom: 1px dashed var(--border-color); }
 
 ul { margin-left: 2ch; }
 img { max-width: 80ch; }
@@ -40,29 +41,31 @@ img { max-width: 80ch; }
 .sections {
   display: flex;
   gap: 1rem;
-  align-items: stretch;
-  align-content: flex-start;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
-
-.sections section:first-child { flex-grow: 1; }
 
 section {
   padding: 1rem;
   margin-bottom: 2rem;
-  border: 1px dashed gray;
+  border: 1px dashed var(--border-color);
   box-shadow: 0 8px 8px -4px lightgray;
 }
 
-.button {
-  border: 1px solid gray;
+input[type=submit], form:not(.button_to) button, .button {
+  border: 1px solid var(--border-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
-.button:hover {
-  box-shadow: 0.2rem 0.2rem pink;
+input[type=submit]:hover, form:not(.button_to) button:hover, .button:hover {
+  box-shadow: 0.2rem 0.2rem var(--accent-color);
 }
 
 .senpai { visibility: hidden; }
 .kohai:hover > .senpai { visibility: visible; }
+
+form.button_to { display: inline; }
+form.button_to button { border: none; }
+form.button_to button:hover { cursor: pointer; text-decoration: underline; }

@@ -11,9 +11,13 @@ module SchemaExtractor
           &.map { { text: _1["text"] } }
       end
 
-      steps
-        .map { it.with_indifferent_access.slice(:text, :name) }
-        .map { Instruction.new(it) }
+      return if steps.blank?
+
+      instructions = steps
+        .map { _1.with_indifferent_access.slice(:text, :name) }
+        .map { Instruction.new(_1) }
+
+      [InstructionSection.new(name: "Instructions", instructions: instructions)]
     end
   end
 end

@@ -1,18 +1,10 @@
 .flash {
-  padding: 1rem;
-  margin: 1rem 0;
-  background-color: seashell;
-  border-width: 1px;
-  border-style: dotted;
-  font-size: var(--small-font-size);
-}
-
-.flash-notice {
-  color: var(--notice-color);
-  border-color: var(--notice-color);
+  padding: 0.5rem 1rem;
+  border: 1px dashed var(--border-color);
+  font-weight: bold;
+  font-size: var(--sm);
 }
 
 .flash-alert {
-  color: var(--alert-color);
-  border-color: var(--alert-color);
+  border-color: darkred;
 }

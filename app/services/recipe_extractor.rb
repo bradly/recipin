@@ -20,30 +20,30 @@ class RecipeExtractor
       total_time:  duration(:totalTime),
 
       ingredients:,
-      instruction_setions:,
+      instruction_sections:,
     }
   end
 
   private
 
   def string(*keys)
-    SchemaExtractor::String.extract(*keys)
+    SchemaExtractor::Base.new(schema, keys).extract
   end
 
   def image(*keys)
-    SchemaExtractor::Image.extract(*keys)
+    SchemaExtractor::Image.new(schema, keys).extract
   end
 
   def duration(*keys)
-    SchemaExtractor::Duration.extract(*keys)
+    SchemaExtractor::Duration.new(schema, keys).extract
   end
 
   def ingredients
-    SchemaExtractor::Ingredients.extract(:recipeIngredient)
+    SchemaExtractor::Ingredients.new(schema, :recipeIngredient).extract
   end
 
   def instruction_sections
-    SchemaExtractor::InstructionSections.extract(:recipeInstructions)
+    SchemaExtractor::InstructionSections.new(schema, :recipeInstructions).extract
   end
  
   def doc
@@ -59,7 +59,7 @@ class RecipeExtractor
   end
 
   def schemas
-    @schemas ||= SchemaExtractor::ByTypeExtractor.new(parsed_json).schemas
+    @schemas ||= ByTypeExtractor.new(parsed_json).schemas
   end
 
   def parsed_json
