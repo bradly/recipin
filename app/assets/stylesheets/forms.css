@@ -39,7 +39,7 @@ input:focus, input:hover {
   box-shadow: 0 8px 8px -4px lightgray;
 }
 
-input[type=submit], button {
+input[type=submit], form:not(.button_to) button {
   margin-top: 1rem;
   padding: 0.8rem;
   border: none;
@@ -51,7 +51,7 @@ input[type=submit], button {
   font-size: var(--small-font-size);
 }
 
-input[type=submit]:hover, button:hover {
+input[type=submit]:hover, form:not(.button_to) button:hover {
   background-color: var(--accent-color-hover);
   box-shadow: 0 8px 8px -4px lightgray;
 }

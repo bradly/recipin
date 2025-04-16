@@ -16,6 +16,7 @@
   --hue: 190;
   --accent-color: hsl(var(--hue), 80%, 42%);
   --accent-color-hover: hsl(from var(--accent-color) h s calc(l * 1.1));
+  --accent-color-light: hsl(from var(--accent-color) h s calc(l * 2));
 
   --notice-color: orange;
   --alert-color: darkred;
