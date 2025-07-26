@@ -14,8 +14,10 @@ gem "bcrypt", "~> 3.1.7"
 gem "iso8601"
 gem "solid_cache"
 gem "kamal", require: false
+gem "sentry-ruby"
+gem "sentry-rails"
 gem "thruster", require: false
-gem 'twilio-ruby'
+gem "twilio-ruby"
 
 group :development, :test do
   gem "debug"
