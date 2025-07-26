@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
   resources :recipes
+
+  namespace :admin do
+    resources :failed_imports, only: :index do
+      post :retry, on: :member
+    end
+  end
 end
