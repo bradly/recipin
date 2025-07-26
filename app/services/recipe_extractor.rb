@@ -10,7 +10,7 @@ class RecipeExtractor
   end
 
   def data
-    { 
+    {
       name:        string(:headline, :name),
       description: string(:description),
       servings:    string(:recipeYield),
@@ -22,6 +22,9 @@ class RecipeExtractor
       ingredients:,
       instruction_sections:,
     }
+  rescue => e
+    FailedImport.create(url: @url, error_message: e.message)
+    nil
   end
 
   private

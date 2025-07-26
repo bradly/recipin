@@ -1,0 +1,2 @@
+class FailedImport < ApplicationRecord
+end

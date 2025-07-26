@@ -1,0 +1,16 @@
+%h1 Failed Imports
+
+%table
+  %thead
+    %tr
+      %th URL
+      %th Error
+      %th Imported At
+      %th
+  %tbody
+    - @failed_imports.each do |failed_import|
+      %tr
+        %td= link_to failed_import.url, failed_import.url, target: "_blank"
+        %td= failed_import.error_message
+        %td= time_ago_in_words(failed_import.created_at)
+        %td= button_to "Retry", retry_admin_failed_import_path(failed_import), method: :post
