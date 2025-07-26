@@ -1,0 +1,23 @@
+%h1 Failed Imports
+
+- if @failed_imports.empty?
+  %p No failed imports recorded.
+- else
+  %table
+    %thead
+      %tr
+        %th ID
+        %th URL
+        %th Error Message
+        %th Occurred At
+        %th
+    %tbody
+      - @failed_imports.each do |failed|
+        %tr
+          %td= failed.id
+          %td
+            = link_to failed.source_url, failed.source_url, target: "_blank", rel: "noopener"
+          %td= failed.short_error
+          %td= l(failed.created_at, format: :short)
+          %td
+            = button_to "Retry", retry_admin_failed_import_path(failed), method: :post, data: { turbo_confirm: "Retry import?" }
