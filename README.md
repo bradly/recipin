@@ -54,7 +54,7 @@ kamal deploy
 
 The `/admin` namespace is protected behind a per-user `admin` Boolean flag. No
 interface is provided to toggle this flag in the app itself—you must use the
-Rails console (or a direct SQL update) instead. For example:
+Rails console (or a direct SQL update) instead:
 
 ```ruby
 # Promote a user
@@ -63,10 +63,6 @@ User.find_by!(email_address: "me@example.com").update!(admin: true)
 # Demote a user
 User.find_by!(email_address: "me@example.com").update!(admin: false)
 ```
-
-Remember to sign out and back in (or restart any open Rails console) so the new
-permissions take effect.
-
 
 ## Authors
 

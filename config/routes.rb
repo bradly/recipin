@@ -9,12 +9,8 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   resources :recipes
 
-  # ---------------------------------------------------------------------------
-  # Admin namespace – only accessible to users with `admin: true`.
-  # ---------------------------------------------------------------------------
   namespace :admin do
-    resources :failed_imports, only: [:index] do
-      # Allows an admin to trigger a manual re-import attempt.
+    resources :failed_imports, only: :index do
       post :retry, on: :member
     end
   end

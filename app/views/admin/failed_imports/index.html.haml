@@ -16,8 +16,8 @@
         %tr
           %td= failed.id
           %td
-            = link_to failed.source_url, failed.source_url, target: "_blank", rel: "noopener"
+            = link_to failed.source_url, failed.source_url, target: "_blank"
           %td= failed.short_error
           %td= l(failed.created_at, format: :short)
           %td
-            = button_to "Retry", retry_admin_failed_import_path(failed), method: :post, data: { turbo_confirm: "Retry import?" }
+            = button_to "Retry", retry_admin_failed_import_path(failed), method: :post
