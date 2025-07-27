@@ -20,8 +20,17 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN pip3 install --no-cache-dir ingredient-parser-nlp --break-system-packages && \
-    pip3 install --no-cache-dir nltk --break-system-packages && \
-    python3 -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')"
+    pip3 install --no-cache-dir nltk --break-system-packages
+ENV NLTK_DATA=/usr/share/nltk_data
+
+RUN set -eux; \
+    mkdir -p "$NLTK_DATA"; \
+    python3 - <<'PY'
+import os, nltk
+nltk.download('averaged_perceptron_tagger_eng', download_dir=os.environ['NLTK_DATA'])
+PY
+
+RUN chmod -R a+rX "$NLTK_DATA"
 
 # Set production environment
 ENV RAILS_ENV="production" \
