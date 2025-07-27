@@ -20,6 +20,7 @@ registry:
 env:
   secret:
     - RAILS_MASTER_KEY
+    - SENTRY_DSN
 
 aliases:
   console: app exec --interactive --reuse "bin/rails console"
