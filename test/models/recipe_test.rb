@@ -28,6 +28,17 @@ class RecipeTest < ActiveSupport::TestCase
     assert_includes blank_attrs, :description
   end
 
+  test "handles nil instruction_sections gracefully" do
+    # Stub extractor to return a nil value for the collection association.
+    stub_extractor(name: "Toast", instruction_sections: nil)
+
+    assert_nothing_raised do
+      recipe.save!
+    end
+
+    assert_empty recipe.instruction_sections
+  end
+
   private
 
   def stub_extractor(data)
