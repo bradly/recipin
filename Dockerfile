@@ -20,8 +20,31 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN pip3 install --no-cache-dir ingredient-parser-nlp --break-system-packages && \
-    pip3 install --no-cache-dir nltk --break-system-packages && \
-    python3 -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')"
+    pip3 install --no-cache-dir nltk --break-system-packages
+
+# -----------------------------------------------------------------------------
+# Pre-bake the required NLTK corpus so the runtime container never goes online
+# to fetch it. We intentionally place the data inside `/usr/share/nltk_data`, a
+# location that is already on NLTK’s default search path and readable by any
+# user. Setting `ENV NLTK_DATA` means both the build-time `nltk.download()` call
+# and the application at runtime look in the same place.
+# -----------------------------------------------------------------------------
+
+# Where NLTK should look for corpora
+ENV NLTK_DATA=/usr/share/nltk_data
+
+# Download the averaged_perceptron_tagger_eng corpus at image build time.
+# - Creates the directory.
+# - Uses Python to download directly into $NLTK_DATA.
+# - Ensures rails (UID 1000) can read the files by giving world-read perms.
+RUN set -eux; \
+    mkdir -p "$NLTK_DATA"; \
+    python3 - <<'PY'
+import os, nltk
+nltk.download('averaged_perceptron_tagger_eng', download_dir=os.environ['NLTK_DATA'])
+PY
+    ; \
+    chmod -R a+rX "$NLTK_DATA"
 
 # Set production environment
 ENV RAILS_ENV="production" \
