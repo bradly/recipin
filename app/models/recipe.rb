@@ -23,7 +23,7 @@ class Recipe < ApplicationRecord
 
   before_save :update_metadata
 
-  normalizes :name, :description, with: StringCleaner
+  normalizes :name, :description, :url, with: StringCleaner
   normalizes :name, :description, with: BrandScrubber
 
   def updatable_attrs
