@@ -50,20 +50,6 @@ kamal setup
 kamal deploy
 ```
 
-## Admin access
-
-The `/admin` namespace is protected behind a per-user `admin` Boolean flag. No
-interface is provided to toggle this flag in the app itself—you must use the
-Rails console (or a direct SQL update) instead:
-
-```ruby
-# Promote a user
-User.find_by!(email_address: "me@example.com").update!(admin: true)
-
-# Demote a user
-User.find_by!(email_address: "me@example.com").update!(admin: false)
-```
-
 ## Authors
 
 - [@bradly](https://www.github.com/bradly)

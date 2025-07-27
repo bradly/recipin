@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_26_170500) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_20_163949) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,14 +37,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_170500) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "failed_imports", force: :cascade do |t|
-    t.string "source_url", null: false
-    t.text "error_message", null: false
-    t.json "context"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -80,11 +72,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_170500) do
     t.index ["instruction_section_id"], name: "index_instructions_on_instruction_section_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,7 +103,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_170500) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false, null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 

@@ -23,7 +23,4 @@ input, textarea {
 input:autofill { filter: hue-rotate(195deg) saturate(200%); }
 input::placeholder { opacity: 0; }
 input:focus, textarea:focus { border-style: solid; }
-input:focus, input:hover, textarea:focus, textarea:hover {
-  box-shadow: 0 8px 8px -4px lightgray;
-  border-color: var(--border-color-accent);
-}
+input:focus, input:hover { box-shadow: 0 8px 8px -4px lightgray; }
