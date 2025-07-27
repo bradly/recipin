@@ -33,6 +33,9 @@ class Recipe < ApplicationRecord
   def update_metadata
     data = extractor.data.slice(*updatable_attrs)
     assign_attributes(data)
+  rescue => e
+    FailedImport.create!(source_url: url, error_message: e.message)
+    raise e
   end
 
   def extractor
