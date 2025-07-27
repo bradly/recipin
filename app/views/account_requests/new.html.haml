@@ -1,0 +1,15 @@
+= form_with model: @account_request, url: account_requests_path do |form|
+  - if @account_request.errors.any?
+    %ul
+      - @account_request.errors.full_messages.each do |msg|
+        %li= msg
+
+  = form.label :email do
+    Email:
+    = form.email_field :email, placeholder: 'you@example.com'
+
+  = form.label :note do
+    Note (optional):
+    = form.text_area :note, rows: 4, placeholder: 'Tell us a bit about how you plan to use Recipin…'
+
+  = form.submit 'Request an invite'

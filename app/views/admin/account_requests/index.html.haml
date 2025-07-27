@@ -1,0 +1,41 @@
+%h1 Account Requests
+
+- unless @show_all
+  %p
+    Showing pending requests only.
+    = link_to 'Show all', admin_account_requests_path(all: 'true')
+- else
+  %p Showing all requests.
+
+- if @account_requests.empty?
+  %p No account requests found.
+- else
+  %table
+    %thead
+      %tr
+        %th ID
+        %th Email
+        %th Note
+        %th Status
+        %th Requested At
+        %th{:colspan => 2}
+    %tbody
+      - @account_requests.each do |req|
+        %tr
+          %td= req.id
+          %td= req.email
+          %td= truncate(req.note.to_s, length: 50)
+          %td
+            - if req.accepted?
+              Accepted
+            - elsif req.dismissed?
+              Dismissed
+            - else
+              Pending
+          %td= l(req.created_at, format: :short)
+          %td
+            - unless req.dismissed?
+              = button_to 'Dismiss', dismiss_admin_account_request_path(req), method: :patch
+          %td
+            - unless req.user
+              = button_to 'Create Account', create_account_admin_account_request_path(req), method: :post
