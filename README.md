@@ -67,3 +67,8 @@ User.find_by!(email_address: "me@example.com").update!(admin: false)
 ## Authors
 
 - [@bradly](https://www.github.com/bradly)
+
+## Running the test suite
+
+See `TESTING.md` for details on recording and replaying VCR cassettes when
+testing the recipe parser.

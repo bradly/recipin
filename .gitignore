@@ -37,3 +37,7 @@
 !/app/assets/builds/.keep
 
 db/production*
+
+# Ignore VCR cassettes (recorded HTTP interactions)
+test/fixtures/vcr_cassettes/*
+!test/fixtures/vcr_cassettes/.gitkeep
