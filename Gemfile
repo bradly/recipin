@@ -24,6 +24,12 @@ group :development, :test do
   gem "mocha"
 end
 
+# Gems used exclusively in the test suite
+group :test do
+  gem "vcr", "~> 6.2"
+  gem "webmock", "~> 3.23"
+end
+
 group :development do
   gem "web-console"
 end
