@@ -42,9 +42,9 @@ namespace :parsing do
       extractor = RecipeExtractor.new(url)
       begin
         extractor.data
-        puts '✔︎ Fetch complete.'
+        puts 'OK: fetch complete.'
       rescue StandardError => e
-        warn "✖︎ Failed to fetch recipe – #{e.class}: #{e.message}"
+        warn "ERROR: Failed to fetch recipe - #{e.class}: #{e.message}"
         raise
       end
     end
