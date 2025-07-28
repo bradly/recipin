@@ -12,11 +12,26 @@ body {
   gap: 2rem;
 }
 
-:any-link, .button_to { text-decoration: none; }
-:any-link { color: currentColor; }
-:any-link:hover { text-shadow: 1px 1px var(--accent-color); }
-:any-link:hover img { box-shadow: 0 4px 4px -2px var(--accent-color); }
 
+.button_to { display: inline; }
+.button_to button { border: none; }
+
+:any-link, .button_to button {
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent-color);
+  color: currentColor;
+}
+:any-link:hover,
+.button_to button:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+:any-link:hover img {
+  box-shadow: 0 4px 4px -2px var(--accent-color);
+}
+
+h1 :any-link{ border: none; }
 h1 :any-link:hover { text-shadow: 2px 2px var(--accent-color); }
 
 h1, h2, h3, h4, h5, h6, ul, li, p {
@@ -65,7 +80,3 @@ input[type=submit]:hover, form:not(.button_to) button:hover, .button:hover {
 
 .senpai { visibility: hidden; }
 .kohai:hover > .senpai { visibility: visible; }
-
-form.button_to { display: inline; }
-form.button_to button { border: none; }
-form.button_to button:hover { cursor: pointer; text-decoration: underline; }

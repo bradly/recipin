@@ -1,4 +1,8 @@
 module ApplicationHelper
+  EXTERNAL_LINKS = {
+    project_homepage: "https://github.com/bradly/recipin",
+  }.freeze
+
   def body_classes
     [
       controller_name,
@@ -15,5 +19,10 @@ module ApplicationHelper
     %w[total prep cook].each_with_object({}) do |key, hash|
       hash["#{key.titlecase}:"] = recipe.public_send(:"#{key}_time").presence
     end.compact
+  end
+
+  def external_link_to(text, url_key, opts = {})
+    opts.merge!({ target: "_blank" })
+    link_to text, EXTERNAL_LINKS.fetch(url_key), opts
   end
 end

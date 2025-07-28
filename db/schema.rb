@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_26_170500) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_28_160044) do
+  create_table "account_requests", force: :cascade do |t|
+    t.string "email_address", null: false
+    t.datetime "dismissed_at"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false

@@ -11,7 +11,7 @@ class RecipesController < ResourceController
     resource
   end
 
-  def create_behaviour
+  def create_behavior
     super
   rescue => e
     FailedImport.create!(

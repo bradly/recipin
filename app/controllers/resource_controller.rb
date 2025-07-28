@@ -5,7 +5,7 @@ class ResourceController < ApplicationController
   attr_reader :resource, :parent
 
   def create
-    if create_behaviour
+    if create_behavior
       redirect_to create_redirect_path, notice: save_success_message
     else
       flash.now[:alert] = save_failed_message
@@ -22,7 +22,7 @@ class ResourceController < ApplicationController
   end
 
   def update
-    if update_behaviour
+    if update_behavior
       redirect_to resource, notice: save_success_message
     else
       flash.now[:alert] = save_failed_message
@@ -31,8 +31,8 @@ class ResourceController < ApplicationController
   end
 
   def destroy
-    destroy_behaviour!
-    redirect_to [collection_name.to_sym], notice: "#{resource_name.titleize} was successfully deleted."
+    destroy_behavior!
+    redirect_to [collection_name.to_sym], notice: "#{human_name.capitalize} was successfully deleted."
   end
 
   private
@@ -83,34 +83,38 @@ class ResourceController < ApplicationController
   end
 
   def save_success_message
-    "#{resource_name.titleize} saved"
+    "#{human_name.capitalize} saved"
   end
 
   def save_failed_message
-    "There was a problem saving this #{resource_name}"
+    "There was a problem saving this #{human_name}"
   end
 
-  def create_behaviour
+  def human_name
+    resource_name.humanize(capitalize: false)
+  end
+
+  def create_behavior
     resource.save
   end
 
-  def create_behaviour!
+  def create_behavior!
     resource.save!
   end
 
-  def update_behaviour
+  def update_behavior
     resource.update(resource_params)
   end
 
-  def update_behaviour!
+  def update_behavior!
     resource.update!(resource_params)
   end
 
-  def destroy_behaviour
+  def destroy_behavior
     resource.destroy
   end
 
-  def destroy_behaviour!
+  def destroy_behavior!
     resource.destroy!
   end
 end

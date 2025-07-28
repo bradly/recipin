@@ -1,0 +1,7 @@
+%ul
+  %li= link_to account_request.email_address, "mailto://#{account_request.email_address}"
+  %li= account_request.created_at.to_fs(:short)
+  - if account_request.note
+    %li= account_request.note
+  - if account_request.dismissed_at
+    %li= account_request.dismissed_at.to_fs(:short)
