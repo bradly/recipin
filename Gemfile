@@ -22,6 +22,8 @@ gem "twilio-ruby"
 group :development, :test do
   gem "debug"
   gem "mocha"
+  gem "vcr"
+  gem "webmock"
 end
 
 group :development do

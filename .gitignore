@@ -37,3 +37,5 @@
 !/app/assets/builds/.keep
 
 db/production*
+
+test/vcr/recipes/*
