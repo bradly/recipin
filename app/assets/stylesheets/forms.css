@@ -20,7 +20,7 @@ input, textarea {
   outline: none;
 }
 
-input:autofill { filter: hue-rotate(195deg) saturate(200%); }
+input:autofill { filter: hue-rotate(195deg); }
 input::placeholder { opacity: 0; }
 input:focus, textarea:focus { border-style: solid; }
 input:focus, input:hover, textarea:focus, textarea:hover {
