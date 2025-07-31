@@ -32,6 +32,8 @@ class RecipeTest < ActiveSupport::TestCase
 
   ENV["RECIPIN_TEST_URLS"].split(/\s+/).each do |test_url|
     test "correctly handles test url #{test_url}" do
+      fake_image = Rack::Test::UploadedFile.new(Rails.root.join("public/chili.png"), "image/png")
+      Recipe.any_instance.stubs(:download_featured_image).returns(fake_image)
       VCR.use_cassette("recipes/#{test_url.parameterize}") do
         assert Recipe.create!(url: test_url)
       end

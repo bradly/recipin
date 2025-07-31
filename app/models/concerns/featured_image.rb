@@ -21,15 +21,21 @@ module FeaturedImage
     return featured_image.purge if image_url.blank?
 
     uri = URI.parse(image_url)
-    downloaded_file = uri.open(read_timeout: 10, ssl_verify_mode: OpenSSL::SSL::VERIFY_PEER)
+    downloaded_file = download_featured_image(uri)
+    return featured_image.purge if downloaded_file.blank?
 
     featured_image.attach(
       io: downloaded_file,
       filename: File.basename(uri.path),
-      content_type: downloaded_file.content_type
+      content_type: downloaded_file.content_type,
     )
+  end
+
+  private
+  def download_featured_image(uri)
+    uri.open(read_timeout: 10, ssl_verify_mode: OpenSSL::SSL::VERIFY_PEER)
   rescue OpenURI::HTTPError, Net::OpenTimeout, SocketError => e
-    errors.add(:base, "Failed to download image: #{e.message}")
-    throw :abort
+    # TODO: Send to Sentry
+    nil
   end
 end

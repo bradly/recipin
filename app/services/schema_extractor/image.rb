@@ -3,13 +3,22 @@ module SchemaExtractor
     def process
       return unless extracted.present?
 
-      case extracted
+      first_pass = case extracted
+       when Hash
+         extracted["url"] || extracted["contentUrl"]
+       when Array
+         extracted.first
+       else
+         extracted
+       end
+
+      case first_pass
       when Hash
-        extracted["url"]
+        first_pass["url"] || first_pass["contentUrl"]
       when Array
-        extracted.first
+        first_pass.first
       else
-        extracted
+        first_pass
       end
     end
   end
