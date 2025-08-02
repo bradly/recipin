@@ -5,6 +5,7 @@
   border-bottom: 1px dashed var(--border-color);
 }
 
-.header nav {
+.header nav > :any-link {
+  margin: 0 0.5rem;
   font-size: var(--sm);
 }
