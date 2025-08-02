@@ -1,0 +1,6 @@
+%tr
+  %td= user.id
+  %td= user.name
+  %td= user.email
+  %td= "Y" if user.admin?
+  %td= link_to "edit", [:edit, :admin, user]

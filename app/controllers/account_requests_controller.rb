@@ -2,7 +2,7 @@ class AccountRequestsController < ResourceController
   allow_unauthenticated_access
 
   private
-  def create_redirect_path
+  def resource_redirect_path
     root_path
   end
 

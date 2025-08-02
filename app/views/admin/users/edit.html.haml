@@ -1,0 +1,16 @@
+%h2 Edit User #{@user.id}
+
+= form_for [:admin, @user] do |f|
+  = f.label :name do
+    Name:
+    = f.text_field :name
+
+  = f.label :email do
+    Email:
+    = f.email_field :email
+
+  = f.label :admin do
+    Admin:
+    = f.checkbox :admin
+
+  = f.submit

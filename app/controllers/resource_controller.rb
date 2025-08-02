@@ -6,24 +6,16 @@ class ResourceController < ApplicationController
 
   def create
     if create_behavior
-      redirect_to create_redirect_path, notice: save_success_message
+      redirect_to resource_redirect_path, notice: save_success_message
     else
       flash.now[:alert] = save_failed_message
       render :new
     end
   end
 
-  def create_redirect_path
-    if parent
-      [parent, resource]
-    else
-      resource
-    end
-  end
-
   def update
     if update_behavior
-      redirect_to resource, notice: save_success_message
+      redirect_to resource_redirect_path, notice: save_success_message
     else
       flash.now[:alert] = save_failed_message
       render :edit
@@ -36,6 +28,14 @@ class ResourceController < ApplicationController
   end
 
   private
+
+  def resource_redirect_path
+    if parent
+      [parent, resource]
+    else
+      resource
+    end
+  end
 
   def self.login_required(...)
     before_action(:require_login, ...)

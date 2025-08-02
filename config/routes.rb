@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :account_requests
+    resources :users
     resources :failed_imports, only: :index do
       post :retry, on: :member
     end

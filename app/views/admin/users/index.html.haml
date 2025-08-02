@@ -1,0 +1,12 @@
+%h2 Users
+
+%table(cellpadding=8)
+  %tr
+    %th ID
+    %th Name
+    %th Email
+    %th Admin
+    %th Actions
+  = render @users
+
+%p= link_to 'Add user', [:new, :admin, :user]
