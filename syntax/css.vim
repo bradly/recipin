@@ -193,7 +193,14 @@ syn keyword cssBorderAttr contained thin thick medium
 
 " box-decoration-break attributes
 syn keyword cssBorderAttr contained clone slice
+
 "------------------------------------------------
+" CSS Masking Module Level 1
+" https://www.w3.org/TR/css-masking-1/
+syn match cssMaskProp contained "\<mask\(-\(image\|mode\|repeat\|position\|clip\|origin\|size\|composite\|type\)\)\=\>"
+syn keyword cssMaskAttr contained none luminance alpha match-source
+syn keyword cssMaskAttr contained add subtract intersect exclude
+syn keyword cssMaskAttr contained fill-box stroke-box view-box no-clip
 
 syn match cssBoxProp contained "\<padding\(-\(top\|right\|bottom\|left\)\)\=\>"
 syn match cssBoxProp contained "\<margin\(-\(top\|right\|bottom\|left\)\)\=\>"
@@ -657,6 +664,8 @@ hi def link cssProp StorageClass
 hi def link cssAttr Constant
 hi def link cssUnitDecorators Number
 hi def link cssNoise Noise
+hi def link cssMaskProp cssProp
+hi def link cssMaskAttr cssAttr
 
 let b:current_syntax = "css"
 

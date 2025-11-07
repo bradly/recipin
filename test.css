@@ -343,3 +343,30 @@ and (max-device-width:1024px)
   background-position-x: 20px;
   background-position-y: 20px;
 }
+
+/* mask properties tests */
+#mask-test {
+  mask: url('{!URLFOR($Resource.images)}/mask.png') no-repeat 50% 50% / contain, linear-gradient(black,transparent);
+  mask: none;
+  mask-image: url('{!URLFOR($Resource.images)}/mask.png'), linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+  mask-mode: none;
+  mask-mode: alpha;
+  mask-mode: match-source;
+  mask-position: top;
+  mask-position: bottom;
+  mask-position: center;
+  mask-size: cover;
+  mask-repeat: repeat-x;
+  mask-origin: content-box;
+  mask-composite: add;
+  mask-composite: subtract;
+  mask-composite: intersect;
+  mask-composite: exclude;
+  mask-type: luminance;
+  mask-clip: padding-box;
+  mask-clip: fill-box;
+  mask-clip: stroke-box;
+  mask-clip: view-box;
+  mask-clip: no-clip;
+}
