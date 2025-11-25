@@ -4,6 +4,11 @@ class ResourceController < ApplicationController
 
   attr_reader :resource, :parent
 
+  def index; end;
+  def new; end;
+  def show; end;
+  def edit; end;
+
   def create
     if create_behavior
       redirect_to resource_redirect_path, notice: save_success_message

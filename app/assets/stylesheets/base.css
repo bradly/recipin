@@ -7,11 +7,13 @@ html, body, * {
 body {
   margin: 4rem;
   font-size: 15px;
-  line-height: 1.5lh;
   display: grid;
   gap: 2rem;
 }
 
+body, button {
+  line-height: 1.5rem;
+}
 
 .button_to { display: inline; }
 .button_to button { border: none; }
@@ -39,7 +41,12 @@ h1, h2, h3, h4, h5, h6, ul, li, p {
   padding: 0;
 }
 
-ul { margin-bottom: 1rem; }
+ul {
+  margin-bottom: 2ch;
+  margin-left: 2ch;
+}
+
+li + li { margin-top: .5rem; }
 
 h1, h2, h3, h4, h5, h6 { 
   font-size: 1rem;
@@ -48,16 +55,33 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: var(--lg); }
 h2 { text-transform: uppercase; margin-bottom: 1rem; }
-h3 { border-bottom: 1px dashed var(--border-color); }
+h3 {
+  border-bottom: 1px dashed var(--border-color);
+  margin-bottom: 1rem;
+}
 
-ul { margin-left: 2ch; }
 img { max-width: 80ch; }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.page-header a {
+  font-size: var(--sm);
+}
 
 .sections {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  align-items: flex-start;
+}
+
+.sections-sidebar {
+  width: 30%;
+}
+
+.sections-main {
+  width: 70%;
 }
 
 section {
@@ -65,6 +89,12 @@ section {
   margin-bottom: 2rem;
   border: 1px dashed var(--border-color);
   box-shadow: 0 8px 8px -4px lightgray;
+}
+
+section img {
+  display:block;
+  max-width:100%;
+  height:auto;
 }
 
 input[type=submit], form:not(.button_to) button, .button {

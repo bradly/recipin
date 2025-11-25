@@ -3,28 +3,27 @@
   = link_to "✍️", [:edit, recipe], class: "senpai"
 
 .sections
-  - if recipe_timings(recipe).present?
+  .sections-sidebar
+    - if recipe_timings(recipe).present?
+      %section
+        %h3 Timing
+        %ul
+          - recipe_timings(recipe).each do |label, value|
+            %li
+              %span= label
+              %span= value
+
     %section
-      %h3 Timing
+      %h3 Ingredients
       %ul
-        - recipe_timings(recipe).each do |label, value|
-          %li
-            %span= label
-            %span= value
+        - recipe.ingredients.each do |ingredient|
+          %li= ingredient.sentence
 
-  %section
-    %h3 Ingredients
-    %ul
-      - recipe.ingredients.each do |ingredient|
-        %li= ingredient.name
 
-  - recipe.instruction_sections.each do |section|
-    %section
-      %h3= section.name
-      %ul
-        - section.instructions.each do |instruction|
-          %li= instruction.text
-
-  - if recipe.featured_image.present?
-    %section
-      = image_tag recipe.featured_image.variant(:fit_500)
+  .sections-main
+    - recipe.instruction_sections.each do |section|
+      %section
+        %h3= section.name
+        %ul
+          - section.instructions.each do |instruction|
+            %li= instruction.text

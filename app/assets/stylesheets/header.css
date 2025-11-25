@@ -1,11 +1,28 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   padding-bottom: 0.5rem;
   border-bottom: 1px dashed var(--border-color);
 }
 
+.header nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .header nav > :any-link {
-  margin: 0 0.5rem;
   font-size: var(--sm);
+}
+
+.header nav button[type="submit"] {
+  margin: 0;
+}
+
+@media screen and (width < 800px) {
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

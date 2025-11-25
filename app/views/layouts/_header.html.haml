@@ -2,5 +2,6 @@
   %h1= link_to "Recipin", root_path
 
   %nav
-    = render "admin/nav" if admin?
+    = link_to "My Recipes", [:recipes] if authenticated?
+    = link_to "Admin", admin_home_path if admin?
     = button_to "Log out", session_path, method: :delete if authenticated?

@@ -1,11 +1,15 @@
 .new-action {
   height: 75vh;
-  width: 42ch;
+  max-width: 42ch;
   align-items: center;
-  align-content: center;
+  align-content: start;
   margin-left: auto;
   margin-right: auto;
   gap: 2rem;
 }
 
-.new-action footer { text-align: center; }
+.new-action input[type=submit] { margin-top: 1.5rem; }
+.new-action footer, .new-action .flash { text-align: center; }
+.new-action .header {
+  display: block;
+}

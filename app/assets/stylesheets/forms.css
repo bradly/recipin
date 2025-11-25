@@ -1,7 +1,7 @@
 form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5lh;
+  gap: 0.5rem;
   text-align: start;
 }
 
@@ -22,8 +22,13 @@ input, textarea {
 
 input:autofill { filter: hue-rotate(195deg); }
 input::placeholder { opacity: 0; }
+
 input:focus, textarea:focus { border-style: solid; }
 input:focus, input:hover, textarea:focus, textarea:hover {
   box-shadow: 0 8px 8px -4px lightgray;
   border-color: var(--border-color-accent);
+}
+
+button[type=submit] {
+  margin-top: 1rem;
 }
