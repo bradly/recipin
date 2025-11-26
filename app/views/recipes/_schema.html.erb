@@ -1,0 +1,21 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": <%= recipe.name %>,
+    "cookTime": <%= recipe.cook_time %>,
+    "description": <%= recipe.description %>,
+    "prepTime": <%= recipe.prep_time %>,
+    "recipeYield": <%= recipe.servings %>,
+    "recipeIngredient": [
+      <% recipe.ingredients.each do %>
+        "<%= _1 %>",
+      <% end %>
+    ],
+    "recipeInstructions": [
+      <% recipe.instruction_sections.flat_map(&:instructions).each do %>
+        "<%= _1 %>",
+      <% end %>
+    ],
+  }
+</script>
