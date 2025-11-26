@@ -13,14 +13,11 @@ proxy:
   forward_headers: true
 
 registry:
-  username: <%= ENV["DOCKER_USERNAME"] %>
-  password:
-    - KAMAL_REGISTRY_PASSWORD
+  server: localhost:5555
 
 env:
   secret:
     - RAILS_MASTER_KEY
-    - SENTRY_DSN
 
 aliases:
   console: app exec --interactive --reuse "bin/rails console"
