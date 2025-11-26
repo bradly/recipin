@@ -1,5 +1,4 @@
 service: recipin
-image: <%= ENV["DOCKER_USERNAME"] %>/recipin
 
 servers:
   web:
