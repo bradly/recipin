@@ -19,7 +19,7 @@ Join one or run your own.
 - **Frontend**: No~de~ JS, a dusting of native CSS, Haml 🤗
 - **Parsing**: Python for NLP ingredient processing
 - **Database**: SQLite for data storage
-- **Deployment**: Kamal and Docker for VPS hosting
+- **Deployment**: Kamal with local registry
 
 ## Local Setup
 
@@ -42,7 +42,6 @@ bin/dev
 
 ```bash
 # Set required environment variables
-export DOCKER_USERNAME=your-docker-username
 export RECIPIN_IP_ADDRESS=your-server-ip
 
 # Deploy for the first time
